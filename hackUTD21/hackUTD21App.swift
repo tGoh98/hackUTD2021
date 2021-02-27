@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct hackUTD21App: App {
+    @StateObject private var modelData = ModelData()
     
     init() {
         FirebaseApp.configure()
