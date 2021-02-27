@@ -2,11 +2,9 @@
 //  Group.swift
 //  hackUTD21
 //
-//  Created by Seung Hun Jang on 2/27/21.
 //
 
 import Foundation
-
 
 class Group: Identifiable {
     var id: UUID

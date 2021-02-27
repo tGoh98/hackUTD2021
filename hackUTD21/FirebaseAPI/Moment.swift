@@ -17,7 +17,7 @@ class Moment: Identifiable {
     
     init(contents: String, tags: Array<String>) {
         self.id = UUID()
-        self.contents = contents
+        self.contents = Item(strMsg: contents)
         self.location = "TODO: make a call and get it here"
         self.timeAdded = Date() // gets the current time
         self.tags = tags
