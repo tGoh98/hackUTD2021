@@ -17,6 +17,15 @@ class RequestIO {
     
     /* Route */
     func createRoute(route: Route) {
-        self.dbref.child("Route").child(route.id).setValue(route)
+        self.dbref.child("Route").child(route.id.uuidString).setValue(route)
     }
+    
+    /* Group */
+    func createUser(name: String) {
+        var user = User(name: name)
+        self.dbref.child("User").setValue(["id": user.id.uuidString, "object": user])
+    }
+    
+    
+    /* User */
 }

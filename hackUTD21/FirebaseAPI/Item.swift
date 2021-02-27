@@ -13,10 +13,10 @@ class Item: Identifiable {
     var imgSrc: String
     var vidSrc: String
    
-    init(strMsg: String, imgSrc: String, vidSrc: String) {
+    init(strMsg: String) {
         self.id = UUID()
         self.strMsg = strMsg
-        self.imgSrc = imgSrc
-        self.vidSrc = vidSrc
+        self.imgSrc = "imgSrc"
+        self.vidSrc = "vidSrc"
     }
 }
