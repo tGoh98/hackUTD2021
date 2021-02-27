@@ -11,15 +11,19 @@
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
 		C275A8E425EAC8D600E9778E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E325EAC8D600E9778E /* Preview Assets.xcassets */; };
+		E88DDBAD73977198A72157F3 /* Pods_hackUTD21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.release.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.release.xcconfig"; sourceTree = "<group>"; };
+		9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.debug.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.debug.xcconfig"; sourceTree = "<group>"; };
 		C275A8D925EAC8D500E9778E /* hackUTD21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackUTD21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackUTD21App.swift; sourceTree = "<group>"; };
 		C275A8DE25EAC8D500E9778E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C275A8E025EAC8D600E9778E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C275A8E325EAC8D600E9778E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C275A8E525EAC8D600E9778E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hackUTD21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +31,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E88DDBAD73977198A72157F3 /* Pods_hackUTD21.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0709254C33AF5E07E2336F2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */,
+				252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C275A8D025EAC8D500E9778E = {
 			isa = PBXGroup;
 			children = (
 				C275A8DB25EAC8D500E9778E /* hackUTD21 */,
 				C275A8DA25EAC8D500E9778E /* Products */,
+				0709254C33AF5E07E2336F2A /* Pods */,
+				C4D34570C16182C5A139FDD8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +86,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C4D34570C16182C5A139FDD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C275A8E825EAC8D600E9778E /* Build configuration list for PBXNativeTarget "hackUTD21" */;
 			buildPhases = (
+				5B11B430136BCD6844AEF683 /* [CP] Check Pods Manifest.lock */,
 				C275A8D525EAC8D500E9778E /* Sources */,
 				C275A8D625EAC8D500E9778E /* Frameworks */,
 				C275A8D725EAC8D500E9778E /* Resources */,
+				8B060D8B16595F53684F51AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5B11B430136BCD6844AEF683 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-hackUTD21-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B060D8B16595F53684F51AC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hackUTD21/Pods-hackUTD21-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hackUTD21/Pods-hackUTD21-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hackUTD21/Pods-hackUTD21-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C275A8D525EAC8D500E9778E /* Sources */ = {
@@ -264,6 +333,7 @@
 		};
 		C275A8E925EAC8D600E9778E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +356,7 @@
 		};
 		C275A8EA25EAC8D600E9778E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
