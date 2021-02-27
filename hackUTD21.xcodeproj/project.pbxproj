@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
+		7983AA4225EAF85200D0FACD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA4125EAF85200D0FACD /* MapView.swift */; };
+		7983AA4625EAFB7600D0FACD /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */; };
 		C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */; };
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.release.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.release.xcconfig"; sourceTree = "<group>"; };
+		7983AA4125EAF85200D0FACD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.debug.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.debug.xcconfig"; sourceTree = "<group>"; };
 		C26CDC3125EB012C002BBE14 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C275A8D925EAC8D500E9778E /* hackUTD21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackUTD21.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +113,8 @@
 				C275A8E025EAC8D600E9778E /* Assets.xcassets */,
 				C275A8E525EAC8D600E9778E /* Info.plist */,
 				C275A8E225EAC8D600E9778E /* Preview Content */,
+				7983AA4125EAF85200D0FACD /* MapView.swift */,
+				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
 			);
 			path = hackUTD21;
 			sourceTree = "<group>";
@@ -277,8 +283,10 @@
 			files = (
 				C2ABE66525EAEA20007A8728 /* Group.swift in Sources */,
 				C2EDD84A25EAD7DA005D8E1E /* Visibility.swift in Sources */,
+				7983AA4625EAFB7600D0FACD /* LocationFetcher.swift in Sources */,
 				C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */,
 				C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */,
+				7983AA4225EAF85200D0FACD /* MapView.swift in Sources */,
 				C2EDD85125EAE011005D8E1E /* Moment.swift in Sources */,
 				C2ABE67325EAF788007A8728 /* Feed.swift in Sources */,
 				C275A90125EAD2B000E9778E /* Route.swift in Sources */,

@@ -15,10 +15,11 @@ struct ContentView: View {
             Feed()
         case 1:
             Text("create run")
+        case 2:
+            MapView()
         default:
             Text("pageNum not found!")
         }
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
