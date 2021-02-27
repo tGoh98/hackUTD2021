@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
 		C275A8E425EAC8D600E9778E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E325EAC8D600E9778E /* Preview Assets.xcassets */; };
+		C275A8FC25EAD24000E9778E /* RequestIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8FB25EAD24000E9778E /* RequestIO.swift */; };
+		C275A90125EAD2B000E9778E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A90025EAD2B000E9778E /* Route.swift */; };
+		C2EDD84725EAD5BB005D8E1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2EDD84625EAD5BB005D8E1E /* GoogleService-Info.plist */; };
 		E88DDBAD73977198A72157F3 /* Pods_hackUTD21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,9 @@
 		C275A8E025EAC8D600E9778E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C275A8E325EAC8D600E9778E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C275A8E525EAC8D600E9778E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C275A8FB25EAD24000E9778E /* RequestIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestIO.swift; sourceTree = "<group>"; };
+		C275A90025EAD2B000E9778E /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		C2EDD84625EAD5BB005D8E1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hackUTD21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -44,7 +50,6 @@
 				9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */,
 				252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -69,6 +74,8 @@
 		C275A8DB25EAC8D500E9778E /* hackUTD21 */ = {
 			isa = PBXGroup;
 			children = (
+				C2EDD84625EAD5BB005D8E1E /* GoogleService-Info.plist */,
+				C275A8FA25EAD22D00E9778E /* FirebaseAPI */,
 				C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */,
 				C275A8DE25EAC8D500E9778E /* ContentView.swift */,
 				C275A8E025EAC8D600E9778E /* Assets.xcassets */,
@@ -84,6 +91,15 @@
 				C275A8E325EAC8D600E9778E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C275A8FA25EAD22D00E9778E /* FirebaseAPI */ = {
+			isa = PBXGroup;
+			children = (
+				C275A8FB25EAD24000E9778E /* RequestIO.swift */,
+				C275A90025EAD2B000E9778E /* Route.swift */,
+			);
+			path = FirebaseAPI;
 			sourceTree = "<group>";
 		};
 		C4D34570C16182C5A139FDD8 /* Frameworks */ = {
@@ -155,6 +171,7 @@
 			files = (
 				C275A8E425EAC8D600E9778E /* Preview Assets.xcassets in Resources */,
 				C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */,
+				C2EDD84725EAD5BB005D8E1E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */,
+				C275A90125EAD2B000E9778E /* Route.swift in Sources */,
+				C275A8FC25EAD24000E9778E /* RequestIO.swift in Sources */,
 				C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

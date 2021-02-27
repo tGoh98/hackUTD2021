@@ -6,9 +6,20 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct hackUTD21App: App {
+    
+    init() {
+        FirebaseApp.configure()
+        
+        
+        let io:RequestIO = RequestIO(dbref: Database.database().reference())
+        let r = Route(id: UUID())
+        io.createRoute(route: r)
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
