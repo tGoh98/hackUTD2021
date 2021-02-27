@@ -29,6 +29,7 @@ struct hackUTD21App: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(modelData)
         }
     }
 }

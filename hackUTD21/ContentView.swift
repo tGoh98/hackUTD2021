@@ -20,6 +20,7 @@ struct ContentView: View {
         default:
             Text("pageNum not found!")
         }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

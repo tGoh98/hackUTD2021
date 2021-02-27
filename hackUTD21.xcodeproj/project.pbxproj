@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
 		7983AA4225EAF85200D0FACD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA4125EAF85200D0FACD /* MapView.swift */; };
 		7983AA4625EAFB7600D0FACD /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */; };
+		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
 		C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */; };
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
@@ -84,6 +84,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C2715EAB25EB0C730018A581 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				7983AA4125EAF85200D0FACD /* MapView.swift */,
+				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
 		C275A8D025EAC8D500E9778E = {
 			isa = PBXGroup;
 			children = (
@@ -113,8 +122,6 @@
 				C275A8E025EAC8D600E9778E /* Assets.xcassets */,
 				C275A8E525EAC8D600E9778E /* Info.plist */,
 				C275A8E225EAC8D600E9778E /* Preview Content */,
-				7983AA4125EAF85200D0FACD /* MapView.swift */,
-				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
 			);
 			path = hackUTD21;
 			sourceTree = "<group>";
@@ -145,6 +152,7 @@
 		C2ABE66B25EAF70E007A8728 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2715EAB25EB0C730018A581 /* MapView */,
 				C2ABE66C25EAF76D007A8728 /* Feed */,
 			);
 			path = View;

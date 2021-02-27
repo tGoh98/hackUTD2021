@@ -24,6 +24,11 @@ struct Feed: View {
             VStack {
                 Spacer()
                 HStack() {
+                    Button(action: {
+                        modelData.pageNum = 2
+                    }, label: {
+                        Text("map view")
+                    })
                     Spacer()
                     Button(action: {
                         modelData.pageNum = 1
