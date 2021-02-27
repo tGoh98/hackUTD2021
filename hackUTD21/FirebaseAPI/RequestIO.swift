@@ -17,7 +17,6 @@ class RequestIO {
     
     /* Route */
     func createRoute(route: Route) {
-        let idStr = route.id.uuidString
-        self.dbref.child("routes").child(idStr).setValue(["id":idStr, "asdf":"val"])
+        self.dbref.child("Route").child(route.id).setValue(route)
     }
 }

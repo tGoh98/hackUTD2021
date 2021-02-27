@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+class Visibility: Identifiable {
+    var type: VisibilityType
+    var groups: Array<Group>
+    
+    init(type: VisibilityType, groups: Array<Group>) {
+        self.type = type
+        self.groups = groups
+        if (type == VisibilityType.Everyone) {
+            // TODO: add everyone const for group
+        }
+    }
+}

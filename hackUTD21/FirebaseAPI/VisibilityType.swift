@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum VisibilityType {
+    case Private, Groups, Everyone
+}
