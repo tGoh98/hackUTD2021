@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7983AA3225EAE06E00D0FACD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA3125EAE06E00D0FACD /* User.swift */; };
+		7983AA3525EAE0A900D0FACD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA3425EAE0A900D0FACD /* Group.swift */; };
 		C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */; };
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.release.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.release.xcconfig"; sourceTree = "<group>"; };
+		7983AA3125EAE06E00D0FACD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7983AA3425EAE0A900D0FACD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.debug.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.debug.xcconfig"; sourceTree = "<group>"; };
 		C275A8D925EAC8D500E9778E /* hackUTD21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackUTD21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackUTD21App.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 			children = (
 				C275A8FB25EAD24000E9778E /* RequestIO.swift */,
 				C275A90025EAD2B000E9778E /* Route.swift */,
+				7983AA3125EAE06E00D0FACD /* User.swift */,
+				7983AA3425EAE0A900D0FACD /* Group.swift */,
 			);
 			path = FirebaseAPI;
 			sourceTree = "<group>";
@@ -227,6 +233,8 @@
 				C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */,
 				C275A90125EAD2B000E9778E /* Route.swift in Sources */,
 				C275A8FC25EAD24000E9778E /* RequestIO.swift in Sources */,
+				7983AA3525EAE0A900D0FACD /* Group.swift in Sources */,
+				7983AA3225EAE06E00D0FACD /* User.swift in Sources */,
 				C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

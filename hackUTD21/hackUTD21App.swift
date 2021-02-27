@@ -15,9 +15,9 @@ struct hackUTD21App: App {
         FirebaseApp.configure()
         
         
-        let io:RequestIO = RequestIO(dbref: Database.database().reference())
-        let r = Route(id: UUID())
-        io.createRoute(route: r)
+//        let io:RequestIO = RequestIO(dbref: Database.database().reference())
+//        let r = Route(id: UUID())
+//        io.createRoute(route: r)
     }
     
     var body: some Scene {
