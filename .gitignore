@@ -1,3 +1,5 @@
 Pods/
+xcuserdata/
 .DS_Store
 hackUTD21/GoogleService-Info.plist
+*.xcodeproj/
