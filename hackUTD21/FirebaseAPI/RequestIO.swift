@@ -33,7 +33,6 @@ class RequestIO {
     
     func getUsers() {
         self.dbref.child("User").observeSingleEvent(of: .value, with: { (snapshot) in
-            //            print(snapshot.childrenCount)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 let v = rest.value as? NSDictionary
@@ -44,7 +43,6 @@ class RequestIO {
                 
                 let user = User(id: id, name: name, groups: groups, routes: routes)
                 self.users.append(user)
-                
             }
         })
     }
