@@ -15,9 +15,14 @@ struct hackUTD21App: App {
         FirebaseApp.configure()
         
         
-//        let io:RequestIO = RequestIO(dbref: Database.database().reference())
+        let io:RequestIO = RequestIO(dbref: Database.database().reference())
 //        let r = Route(id: UUID())
 //        io.createRoute(route: r)
+        io.createUser(name: "Seung")
+        io.createUser(name: "Tim")
+        
+        io.getUsers()
+        
     }
     
     var body: some Scene {

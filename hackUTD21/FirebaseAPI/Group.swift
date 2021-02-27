@@ -11,8 +11,8 @@ class Group: Identifiable {
     var name: String
     var users: Array<UUID>
     
-    init(name: String) {
-        self.id = UUID()
+    init(id: UUID = UUID(), name: String) {
+        self.id = id
         self.name = name
         self.users = [UUID]()
     }

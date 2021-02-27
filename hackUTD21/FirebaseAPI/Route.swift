@@ -14,8 +14,8 @@ class Route: Identifiable {
     var moments: Array<Moment>
     var creator: User
     
-    init(visibility: Visibility) {
-        self.id = UUID()
+    init(id: UUID = UUID(), visibility: Visibility) {
+        self.id = id
         self.visibility = visibility
         self.moments = [Moment]()
         self.creator = User(name: "TODO") // TODO: get this dynamically
