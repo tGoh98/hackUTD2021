@@ -17,7 +17,7 @@ final class ModelData: ObservableObject {
     @Published var pageNum: Int = 0
 //    @Published var showFAB: Bool = false
     @Published var requestIo = RequestIO(dbref: Database.database().reference())
-    
+    @Published var currentUserUUID = UUID(uuidString: "eda6f5ac-6fd3-4d2e-9919-950dbe5947cb")
     var feed: [CardInfo] = loadFeed()
 }
 

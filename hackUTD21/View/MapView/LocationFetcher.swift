@@ -12,18 +12,19 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
     var lastKnownLocation: CLLocationCoordinate2D?
     var regions = [CLRegion]()
-    @Published var alerted: Bool = false
-
+    @Published var geofenceTriggered: Bool = false
+    
+    
     override init() {
         super.init()
         manager.delegate = self
+        
     }
 
     func start() {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         monitorRegionAtLocation(center: CLLocationCoordinate2D(latitude: 29.71075045624731, longitude: -95.41610668658146), identifier: "Neighbor1")
-        alerted.toggle()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -54,6 +55,6 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
     
     func notifyEntry() {
-        print(regions)
+        geofenceTriggered = true
     }
 }

@@ -7,15 +7,16 @@
 
 import Foundation
 
-class Visibility: Identifiable {
-    var type: VisibilityType
-    var groups: Array<Group>
+class Visibility: Identifiable, Codable {
+    var type: Int // 0: private, 1: group, 2: everyone
+    var groups: Array<UUID>
     
-    init(type: VisibilityType, groups: Array<Group>) {
+    init(type: Int, groups: Array<UUID> = [UUID]()) {
         self.type = type
         self.groups = groups
-        if (type == VisibilityType.Everyone) {
-            // TODO: add everyone const for group
-        }
+//        if (type == 2) {
+//            // TODO: add everyone const for group
+//
+//        }
     }
 }

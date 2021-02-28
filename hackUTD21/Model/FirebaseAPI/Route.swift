@@ -8,16 +8,16 @@
 import Foundation
 
 
-class Route: Identifiable {
+class Route: Identifiable, Codable {
     var id: UUID
     var visibility: Visibility
-    var moments: Array<Moment>
-    var creator: User
+    var moments: Array<UUID>
+    var creator: UUID
     
-    init(id: UUID = UUID(), visibility: Visibility) {
+    init(id: UUID = UUID(), visibility: Visibility, moments: Array<UUID> = [UUID](), creator: UUID) {
         self.id = id
         self.visibility = visibility
-        self.moments = [Moment]()
-        self.creator = User(name: "TODO") // TODO: get this dynamically
+        self.moments = moments
+        self.creator = creator
     }
 }

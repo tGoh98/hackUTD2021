@@ -11,14 +11,20 @@ import MapKit
 
 
 class RequestIO {
+    
     var dbref: DatabaseReference
     var users: Array<User>
     var moments: Array<Moment>
+    var trailMomentUUIDs: Array<UUID>
+    var trailVisibility: Visibility
     
     init(dbref: DatabaseReference) {
         self.dbref = dbref
         self.users = [User]()
         self.moments = [Moment]()
+        self.trailMomentUUIDs = [UUID]()
+        self.trailVisibility = Visibility(type: 2)
+        
         getMoments()
     }
     
@@ -55,9 +61,10 @@ class RequestIO {
 
     /* Moment */
     
-    func createMoment(contents: Item, tags: Array<String>, coordinate: CLLocationCoordinate2D) {
+    func createMoment(contents: Item, tags: Array<String>, coordinate: CLLocationCoordinate2D) -> UUID {
         var moment = Moment(contents: contents, tags: tags, latitude: coordinate.latitude, longitude: coordinate.longitude)
         self.dbref.child("Moment").child(moment.id.uuidString).setValue(moment.toDictionary)
+        return moment.id
     }
     
     func getMoments() {
@@ -79,6 +86,13 @@ class RequestIO {
         })
     }
     
+    /* Route */
+    
+    func createRoute(currentUserUUID: UUID) -> UUID {
+        var route = Route(visibility: trailVisibility, moments: trailMomentUUIDs, creator: currentUserUUID)
+        self.dbref.child("Route").child(route.id.uuidString).setValue(route.toDictionary)
+        return route.id
+    }
     
     /* Group */
     
