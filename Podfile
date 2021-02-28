@@ -8,5 +8,6 @@ target 'hackUTD21' do
   # Pods for hackUTD21
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod ‘FLAnimatedImage’
 
 end

@@ -22,6 +22,7 @@ PODS:
   - FirebaseStorage (7.5.0):
     - FirebaseCore (~> 7.0)
     - GTMSessionFetcher/Core (~> 1.4)
+  - FLAnimatedImage (1.0.15)
   - GoogleDataTransport (8.2.0):
     - nanopb (~> 2.30907.0)
   - GoogleUtilities/Environment (7.2.0):
@@ -40,6 +41,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
+  - FLAnimatedImage
 
 SPEC REPOS:
   trunk:
@@ -48,6 +50,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseDatabase
     - FirebaseStorage
+    - FLAnimatedImage
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
@@ -61,6 +64,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 35685db68b11fe7d19d2d8b557fd7e3a56ac81cc
   FirebaseDatabase: ee59c5f39e49dfa6c06af6f4e541a88d9271625a
   FirebaseStorage: 9cbdff7bdcdc8289c8efc20945fc91c1066d0b43
+  FLAnimatedImage: dd3db277b17e909ec3c7fd41adfce79b321d960e
   GoogleDataTransport: 1024b1a4dfbd7a0e92cb20d7e0a6f1fb66b449a4
   GoogleUtilities: d866834472f1324d080496bc67ab3ce5d0d46027
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
@@ -68,6 +72,6 @@ SPEC CHECKSUMS:
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 78094f8d8b7f265be64fd761e699ca434da4fe50
+PODFILE CHECKSUM: 60c9926bcac7d945152cf9285ebc4b62d19a9f00
 
 COCOAPODS: 1.10.1

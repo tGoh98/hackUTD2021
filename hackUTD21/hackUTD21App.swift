@@ -11,32 +11,33 @@ import Firebase
 @main
 struct hackUTD21App: App {
     @StateObject private var modelData = ModelData()
+    @State var step: Int = 0
+    let splashTimer = Timer.publish(every: 3, on: .current, in: .common).autoconnect()
     
     init() {
         FirebaseApp.configure()
-        
-        
-        
-//        let io:RequestIO = RequestIO(dbref: Database.database().reference())
-        
-//        modelData.feed = loadFeed(modelData: modelData, requestIo: io)
-        
-        
-//        let r = Route(id: UUID())
-//        io.createRoute(route: r)
-//        io.createUser(name: "Seung")
-//        io.createUser(name: "Tim")
-        
-//        io.getUsers()
-        
-        
     }
     
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(modelData)
+            if (step == 0) {
+                Splash()
+            } else {
+                ContentView()
+                    .environmentObject(modelData)
+            }
+            Text("")
+                .frame(maxWidth: 0, maxHeight:0)
+                .onReceive(splashTimer) { _ in
+                    if (self.step == 0) {
+                        self.step += 1
+                    }
+                    if (self.step >= 2) {
+                        self.splashTimer.upstream.connect().cancel()
+                    }
+                }
+            
         }
     }
 }

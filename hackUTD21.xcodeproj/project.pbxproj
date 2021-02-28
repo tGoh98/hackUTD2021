@@ -14,6 +14,7 @@
 		C211090425EBB4A5001428DC /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C211090225EBB4A5001428DC /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C211090825EBD484001428DC /* FollowingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C211090725EBD484001428DC /* FollowingPath.swift */; };
 		C211090A25EBEB31001428DC /* FoundMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C211090925EBEB31001428DC /* FoundMoment.swift */; };
+		C211090D25EBFCAB001428DC /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C211090C25EBFCAB001428DC /* AnimatedImageView.swift */; };
 		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
 		C2715EB725EB33710018A581 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB625EB33710018A581 /* CardInfo.swift */; };
 		C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB925EB3DCE0018A581 /* TrailDetail.swift */; };
@@ -35,6 +36,8 @@
 		C2EDD84E25EAD83E005D8E1E /* VisibilityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EDD84D25EAD83E005D8E1E /* VisibilityType.swift */; };
 		C2EDD85125EAE011005D8E1E /* Moment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EDD85025EAE011005D8E1E /* Moment.swift */; };
 		C2EDD85425EAE181005D8E1E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EDD85325EAE181005D8E1E /* Item.swift */; };
+		C2FBF57125EBFD4F00069087 /* splash.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2FBF57025EBFD4F00069087 /* splash.gif */; };
+		C2FBF58025EBFDD100069087 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FBF57F25EBFDD100069087 /* Splash.swift */; };
 		E88DDBAD73977198A72157F3 /* Pods_hackUTD21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,7 @@
 		C21108FE25EBB1A2001428DC /* Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congrats.swift; sourceTree = "<group>"; };
 		C211090725EBD484001428DC /* FollowingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPath.swift; sourceTree = "<group>"; };
 		C211090925EBEB31001428DC /* FoundMoment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundMoment.swift; sourceTree = "<group>"; };
+		C211090C25EBFCAB001428DC /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
 		C26CDC3125EB012C002BBE14 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C2715EB625EB33710018A581 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		C2715EB925EB3DCE0018A581 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 		C2EDD84D25EAD83E005D8E1E /* VisibilityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityType.swift; sourceTree = "<group>"; };
 		C2EDD85025EAE011005D8E1E /* Moment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moment.swift; sourceTree = "<group>"; };
 		C2EDD85325EAE181005D8E1E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C2FBF57025EBFD4F00069087 /* splash.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = splash.gif; sourceTree = "<group>"; };
+		C2FBF57F25EBFDD100069087 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hackUTD21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +114,16 @@
 				252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C211090B25EBFC83001428DC /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				C2FBF57025EBFD4F00069087 /* splash.gif */,
+				C211090C25EBFCAB001428DC /* AnimatedImageView.swift */,
+				C2FBF57F25EBFDD100069087 /* Splash.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		C26CDC3025EB0114002BBE14 /* Model */ = {
@@ -194,6 +210,7 @@
 		C2ABE66B25EAF70E007A8728 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C211090B25EBFC83001428DC /* Splash */,
 				C2715EAB25EB0C730018A581 /* MapView */,
 				C2ABE66C25EAF76D007A8728 /* Feed */,
 			);
@@ -287,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C275A8E425EAC8D600E9778E /* Preview Assets.xcassets in Resources */,
+				C2FBF57125EBFD4F00069087 /* splash.gif in Resources */,
 				C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */,
 				C2EDD84725EAD5BB005D8E1E /* GoogleService-Info.plist in Resources */,
 			);
@@ -345,6 +363,7 @@
 				C2EDD84A25EAD7DA005D8E1E /* Visibility.swift in Sources */,
 				7983AA4625EAFB7600D0FACD /* LocationFetcher.swift in Sources */,
 				C2715ED625EB99450018A581 /* MyMoment.swift in Sources */,
+				C2FBF58025EBFDD100069087 /* Splash.swift in Sources */,
 				C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */,
 				C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */,
 				7983AA4225EAF85200D0FACD /* MapView.swift in Sources */,
@@ -352,6 +371,7 @@
 				C2715ED325EB94330018A581 /* ImagePicker.swift in Sources */,
 				C2EDD85125EAE011005D8E1E /* Moment.swift in Sources */,
 				C2ABE67325EAF788007A8728 /* Feed.swift in Sources */,
+				C211090D25EBFCAB001428DC /* AnimatedImageView.swift in Sources */,
 				C2715EBE25EB63C70018A581 /* StartPath.swift in Sources */,
 				C21108FF25EBB1A2001428DC /* Congrats.swift in Sources */,
 				C275A90125EAD2B000E9778E /* Route.swift in Sources */,

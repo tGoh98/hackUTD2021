@@ -21,7 +21,7 @@ struct Feed: View {
         ZStack {
             VStack() {
                 Text("")
-                    .font(.system(size: 1))
+                    .frame(maxWidth: 0, maxHeight:0)
                     .onReceive(timer, perform: { _ in
                         timeElapsed += 1
                         if timeElapsed >= 3 {
