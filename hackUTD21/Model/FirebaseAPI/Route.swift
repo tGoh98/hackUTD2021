@@ -17,8 +17,9 @@ class Route: Identifiable, Codable {
     var timeElapsed: Double
     var name: String
     var description: String
+    var timeCreated: String
     
-    init(id: UUID = UUID(), visibility: Visibility, moments: Array<UUID> = [UUID](), creator: UUID, distanceTraveled: Double, timeElapsed: Double, name: String, description: String) {
+    init(id: UUID = UUID(), visibility: Visibility, moments: Array<UUID> = [UUID](), creator: UUID, distanceTraveled: Double, timeElapsed: Double, name: String, description: String, timeCreated: String) {
         self.id = id
         self.visibility = visibility
         self.moments = moments
@@ -27,5 +28,6 @@ class Route: Identifiable, Codable {
         self.timeElapsed = timeElapsed
         self.name = name
         self.description = description
+        self.timeCreated = timeCreated
     }
 }

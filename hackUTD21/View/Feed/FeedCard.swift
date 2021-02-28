@@ -10,7 +10,7 @@ import MapKit
 
 struct FeedCard: View {
     var name: String
-    var timeAdded: Date
+    var timeAdded: String
     var desc: String
     @State var moments: Array<Moment>
     @State var region: MKCoordinateRegion
@@ -20,7 +20,7 @@ struct FeedCard: View {
             HStack {
                 Text(name)
                 Spacer()
-                Text(convertDate(date: timeAdded))
+                Text(timeAdded)
                     .foregroundColor(Color.init(hex: "757575"))
             }
             .padding(.vertical)
@@ -49,7 +49,7 @@ struct FeedCard: View {
 
 struct FeedCard_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCard(name: "name", timeAdded: Date(), desc: "descdescdesc", moments: [Moment(contents: Item(strMsg: "asdf"), tags: ["ASDF","ASDF"], latitude: 0.0, longitude: 0.0)], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)))
+        FeedCard(name: "name", timeAdded: "ASDFASDF", desc: "descdescdesc", moments: [Moment(contents: Item(strMsg: "asdf"), tags: ["ASDF","ASDF"], latitude: 0.0, longitude: 0.0)], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)))
     }
 }
 

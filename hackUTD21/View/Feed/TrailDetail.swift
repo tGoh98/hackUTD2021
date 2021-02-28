@@ -62,7 +62,7 @@ struct TrailDetail: View {
 
 struct TrailDetail_Previews: PreviewProvider {
     static var previews: some View {
-        TrailDetail(card: FeedCard(name:"tim", timeAdded: Date(), desc: "snoooooopy", moments: [Moment(contents: Item(strMsg: "asdf"), tags: ["ASDF","ASDF"], latitude: 0.0, longitude: 0.0)], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))))
+        TrailDetail(card: FeedCard(name:"tim", timeAdded: "ASDFASDFA", desc: "snoooooopy", moments: [Moment(contents: Item(strMsg: "asdf"), tags: ["ASDF","ASDF"], latitude: 0.0, longitude: 0.0)], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))))
             .environmentObject(ModelData())
     }
 }
