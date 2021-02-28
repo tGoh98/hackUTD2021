@@ -6,22 +6,30 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct Feed: View {
     @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         ZStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(1..<10) { _ in
-                        FeedCard()
+            VStack() {
+                NavigationView {
+                    List(modelData.feed) { feedItem in
+                        ZStack {
+                            FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+                            NavigationLink(destination: TrailDetail(card: FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))))) {
+                                EmptyView()
+                            }
+                            .opacity(0.0)
+                            .buttonStyle(PlainButtonStyle())
+                        }
                     }
-                    
+                    .navigationTitle("Home")
                 }
-                .padding()
             }
-            VStack {
+            
+            VStack() {
                 Spacer()
                 HStack() {
                     Button(action: {
@@ -55,5 +63,6 @@ struct Feed: View {
 struct Feed_Previews: PreviewProvider {
     static var previews: some View {
         Feed()
+            .environmentObject(ModelData())
     }
 }

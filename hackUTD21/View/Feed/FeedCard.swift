@@ -6,26 +6,45 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct FeedCard: View {
+    var name: String
+    var timeAdded: Date
+    var desc: String
+    @State var region: MKCoordinateRegion
+    
     var body: some View {
         VStack {
             HStack {
-                Text("Name")
+                Text(name)
                 Spacer()
+                Text(convertDate(date: timeAdded))
+                    .foregroundColor(Color.init(hex: "757575"))
             }
-            Divider()
-            Image("mapHolder")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            .padding(.vertical)
+            
+            Text(desc)
+                .padding(.vertical)
+            
+            Map(coordinateRegion: $region)
+                .frame(minHeight:200, maxHeight: 200)
+                .padding(.vertical)
         }
-        .padding(10)
-        .background(Color.init(hex: "007AFF").opacity(0.1).clipShape(RoundedRectangle(cornerRadius: 8.0)))
+        
+    }
+    
+    func convertDate(date: Date) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        return df.string(from: date).replacingOccurrences(of: " ", with: " at ")
     }
 }
 
 struct FeedCard_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCard()
+        FeedCard(name: "name", timeAdded: Date(), desc: "descdescdesc", region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)))
     }
 }
+
+
