@@ -75,7 +75,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
         // Make sure the devices supports region monitoring.
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
             // Register the region.
-            let maxDistance = 50.0
+            let maxDistance = 10.0
             let region = CLCircularRegion(center: center,
                                           radius: maxDistance, identifier: identifier)
             region.notifyOnEntry = true

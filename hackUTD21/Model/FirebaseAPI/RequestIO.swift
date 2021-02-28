@@ -69,10 +69,10 @@ class RequestIO {
     /* Moment */
     
     /* create a new moment */
-    func createMoment(contents: Item, tags: Array<String>, coordinate: CLLocationCoordinate2D) -> UUID {
+    func createMoment(contents: Item, tags: Array<String>, coordinate: CLLocationCoordinate2D) -> Moment {
         var moment = Moment(contents: contents, tags: tags, latitude: coordinate.latitude, longitude: coordinate.longitude)
         self.dbref.child("Moment").child(moment.id.uuidString).setValue(moment.toDictionary)
-        return moment.id
+        return moment
     }
     
     /* get all moments */

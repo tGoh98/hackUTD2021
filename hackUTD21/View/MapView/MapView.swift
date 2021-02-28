@@ -23,6 +23,7 @@ struct MapView: View {
     @State var momentUUID: UUID = UUID()
     @State private var showMomentDialog: Bool = false
     @State private var isShowPhotoLibrary = false
+    @State private var curMoments: Array<Moment> = [Moment]()
     
     @State private var showingCreateMomentAlert = false
     @State private var trailBegan = false
@@ -55,10 +56,17 @@ struct MapView: View {
                     interactionModes: MapInteractionModes.all,
                     showsUserLocation: true,
                     userTrackingMode: $userTrackingMode,
-                    annotationItems: modelData.requestIo.moments
-                ) { moment in
+                    annotationItems: self.curMoments
+                )
+                { moment in
                     MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))
                 }
+//                Map(
+//                    coordinateRegion: $region,
+//                    interactionModes: MapInteractionModes.all,
+//                    showsUserLocation: true,
+//                    userTrackingMode: $userTrackingMode
+//                )
                 
                 VStack {
                     Spacer()
@@ -247,27 +255,14 @@ struct MapView: View {
     func createMoment() {
         if let location = self.locationFetcher.lastKnownLocation {
             var item = Item(strMsg: "new moment!")
-            momentUUID = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
+            let newMoment: Moment = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
+            
+            momentUUID = newMoment.id
             
             momentCount += 1
             // Add the moment UUID to trail moment array
             modelData.requestIo.trailMomentUUIDs.append(momentUUID)
-            print("momentUUID from mv: \(momentUUID)")
-            
-            // upload image to firebase storage
-//            self.image
-            
-//            let imgRef = fbStorageRef.child("images/\(uuid)")
-//            guard let data = image.pngData() else {
-//                print("returned :(")
-//                return
-//            }
-//            let uploadTask = imgRef.putData(data, metadata: nil) { (metadata, error ) in
-//                guard let metadata = metadata else {
-//                    print("OOPS error")
-//                    return
-//                }
-//            }
+            self.curMoments.append(newMoment)
             
         } else {
             print("Your location is unknown")

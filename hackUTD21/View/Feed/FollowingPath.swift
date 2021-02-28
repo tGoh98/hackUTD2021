@@ -144,20 +144,10 @@ struct FollowingPath: View {
                     }
                 }
                 if (self.showMomentImg) {
-                    VStack {
-                        HStack {
-                            Text("You found a moment!")
-                            Spacer()
+                    FoundMoment(imageSource: locationFetcher.imgSrc)
+                        .onTapGesture {
+                            self.showMomentImg.toggle()
                         }
-                        Image(systemName: "person.fill")
-                            .data(url: URL(string: locationFetcher.imgSrc)!)
-                            .scaledToFit()
-                            .padding()
-                            .onTapGesture {
-                                self.showMomentImg.toggle()
-                            }
-                    }
-                    
                 }
             }
             .onAppear() {

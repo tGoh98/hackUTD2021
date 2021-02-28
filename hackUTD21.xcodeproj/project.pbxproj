@@ -13,6 +13,7 @@
 		C211090325EBB4A5001428DC /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C211090225EBB4A5001428DC /* ConfettiSwiftUI */; };
 		C211090425EBB4A5001428DC /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C211090225EBB4A5001428DC /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C211090825EBD484001428DC /* FollowingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C211090725EBD484001428DC /* FollowingPath.swift */; };
+		C211090A25EBEB31001428DC /* FoundMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C211090925EBEB31001428DC /* FoundMoment.swift */; };
 		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
 		C2715EB725EB33710018A581 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB625EB33710018A581 /* CardInfo.swift */; };
 		C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB925EB3DCE0018A581 /* TrailDetail.swift */; };
@@ -60,6 +61,7 @@
 		9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.debug.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.debug.xcconfig"; sourceTree = "<group>"; };
 		C21108FE25EBB1A2001428DC /* Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congrats.swift; sourceTree = "<group>"; };
 		C211090725EBD484001428DC /* FollowingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPath.swift; sourceTree = "<group>"; };
+		C211090925EBEB31001428DC /* FoundMoment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundMoment.swift; sourceTree = "<group>"; };
 		C26CDC3125EB012C002BBE14 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C2715EB625EB33710018A581 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		C2715EB925EB3DCE0018A581 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				C2ABE67525EAF80B007A8728 /* FeedCard.swift */,
 				C2715EB925EB3DCE0018A581 /* TrailDetail.swift */,
 				C211090725EBD484001428DC /* FollowingPath.swift */,
+				C211090925EBEB31001428DC /* FoundMoment.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				C21108FF25EBB1A2001428DC /* Congrats.swift in Sources */,
 				C275A90125EAD2B000E9778E /* Route.swift in Sources */,
 				C2EDD85425EAE181005D8E1E /* Item.swift in Sources */,
+				C211090A25EBEB31001428DC /* FoundMoment.swift in Sources */,
 				C2ABE67625EAF80B007A8728 /* FeedCard.swift in Sources */,
 				C2EDD84E25EAD83E005D8E1E /* VisibilityType.swift in Sources */,
 				C275A8FC25EAD24000E9778E /* RequestIO.swift in Sources */,
