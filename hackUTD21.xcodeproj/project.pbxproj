@@ -59,8 +59,14 @@
 		252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.release.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.release.xcconfig"; sourceTree = "<group>"; };
 		7983AA4125EAF85200D0FACD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
-		7983AA4E25EB169700D0FACD /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation.gpx; sourceTree = "<group>"; };
-		7983AA5025EB180D00D0FACD /* TestLocation2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation2.gpx; sourceTree = "<group>"; };
+		7983AA4E25EB169700D0FACD /* House.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = House.gpx; sourceTree = "<group>"; };
+		7983AA5025EB180D00D0FACD /* Rice University.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Rice University.gpx"; sourceTree = "<group>"; };
+		7983AA7D25EBFC0800D0FACD /* UT Dallas.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "UT Dallas.gpx"; sourceTree = "<group>"; };
+		7983AA7E25EBFC6F00D0FACD /* Phase 8 Clubhouse.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Phase 8 Clubhouse.gpx"; sourceTree = "<group>"; };
+		7983AA7F25EBFCBD00D0FACD /* UTD Baseball Field.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "UTD Baseball Field.gpx"; sourceTree = "<group>"; };
+		7983AA8025EBFCF600D0FACD /* Houston Zoo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Houston Zoo.gpx"; sourceTree = "<group>"; };
+		7983AA8125EBFD1A00D0FACD /* Texas Medical Center.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Texas Medical Center.gpx"; sourceTree = "<group>"; };
+		7983AA8225EBFD4800D0FACD /* Starbucks Near Rice.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Starbucks Near Rice.gpx"; sourceTree = "<group>"; };
 		9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.debug.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.debug.xcconfig"; sourceTree = "<group>"; };
 		C21108FE25EBB1A2001428DC /* Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congrats.swift; sourceTree = "<group>"; };
 		C211090725EBD484001428DC /* FollowingPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingPath.swift; sourceTree = "<group>"; };
@@ -178,8 +184,14 @@
 				C275A8E025EAC8D600E9778E /* Assets.xcassets */,
 				C275A8E525EAC8D600E9778E /* Info.plist */,
 				C275A8E225EAC8D600E9778E /* Preview Content */,
-				7983AA4E25EB169700D0FACD /* TestLocation.gpx */,
-				7983AA5025EB180D00D0FACD /* TestLocation2.gpx */,
+				7983AA4E25EB169700D0FACD /* House.gpx */,
+				7983AA8225EBFD4800D0FACD /* Starbucks Near Rice.gpx */,
+				7983AA5025EB180D00D0FACD /* Rice University.gpx */,
+				7983AA8025EBFCF600D0FACD /* Houston Zoo.gpx */,
+				7983AA8125EBFD1A00D0FACD /* Texas Medical Center.gpx */,
+				7983AA7D25EBFC0800D0FACD /* UT Dallas.gpx */,
+				7983AA7E25EBFC6F00D0FACD /* Phase 8 Clubhouse.gpx */,
+				7983AA7F25EBFCBD00D0FACD /* UTD Baseball Field.gpx */,
 			);
 			path = hackUTD21;
 			sourceTree = "<group>";
