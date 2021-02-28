@@ -11,7 +11,7 @@ import CoreLocation
 class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
     var lastKnownLocation: CLLocationCoordinate2D?
-    var regions = [CLRegion]()
+    var regions = [String: CLRegion]()
     @Published var geofenceTriggered: Bool = false
     
     
@@ -49,12 +49,25 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if let region = region as? CLCircularRegion {
             let identifier = region.identifier
-            regions.append(region)
+            regions[identifier] = region
             notifyEntry()
         }
     }
     
+    
     func notifyEntry() {
         geofenceTriggered = true
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if let region = region as? CLCircularRegion {
+            let identifier = region.identifier
+            regions[identifier] = nil
+            notifyExit()
+        }
+    }
+    
+    func notifyExit() {
+        geofenceTriggered = false
     }
 }
