@@ -40,7 +40,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
         } else {
             nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds
         }
-        //        var nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds// <<<<< Difference in nano seconds (UInt64)
+
         let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
         
         print("Time taken for this trail: \(timeInterval) seconds")
@@ -50,9 +50,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     func start() {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-        
-        // TODO: When do we call monitorRegionAtLocation? For which moments?
-        monitorRegionAtLocation(center: CLLocationCoordinate2D(latitude: 29.71075045624731, longitude: -95.41610668658146), identifier: "Neighbor1")
+
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -107,7 +105,6 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
                 }
             }
 
-            //            regions[identifier] = region
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: notifyEntry)
     }

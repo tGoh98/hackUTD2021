@@ -86,22 +86,18 @@ class RequestIO {
                 let contents = v?["contents"] as? Item ?? Item(strMsg: "new item")
                 let latitude = v?["latitude"] as? Double ?? 0.0
                 let longitude = v?["longitude"] as? Double ?? 0.0
-//                let timeAdded = v?["timeAdded"] as? Date ?? Date()
                 let tags = v?["tags"] as? Array<String> ?? [String]()
-                print("Moments id : ", id)
+                
                 let moment = Moment(id: UUID(uuidString: id) ?? UUID(), contents: contents, tags: tags, latitude: latitude, longitude: longitude)
                 self.moments.append(moment)
             }
-            print("local moments is \(self.moments)")
         })
     }
 
     /* get all moments within a route with routeId uuid. */
     func getMomentsForRoute(routeId: UUID) -> Array<Moment> {
         let route = getRouteById(routeId: routeId)[0]
-        print("route is ", route, route.moments)
         let momentIdSet = Set<UUID>(route.moments.map { $0 })
-        print("momentIdSet is ", momentIdSet)
         return moments.filter { momentIdSet.contains($0.id) }
 
     }
@@ -138,8 +134,7 @@ class RequestIO {
                 let name = v?["name"] as? String ?? ""
                 let description = v?["description"] as? String ?? ""
                 let timeCreated = v?["timeCreated"] as? String ?? ""
-                print("Time Creates is" , timeCreated)
-//                print(visibility, visibility.type)
+
                 let route = Route(id: UUID(uuidString: id) ?? UUID() , visibility: visibility, moments: moments.map { UUID(uuidString: $0) ?? UUID()}, creator: UUID(uuidString: creator) ?? UUID(), distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description, timeCreated: timeCreated)
                 self.routes.append(route)
             }

@@ -38,7 +38,7 @@ struct MapView: View {
     )
     
     
-
+    
     init(started: Binding<Bool>) {
         self._started = started
         self.locationFetcher.start()
@@ -114,6 +114,7 @@ struct MapView: View {
                                 Spacer()
                                 Button(action: {
                                     if (trailBegan) {
+                                        
                                         self.isShowPhotoLibrary = true
                                         self.showMomentDialog = true
                                         
@@ -220,7 +221,7 @@ struct MapView: View {
                 .edgesIgnoringSafeArea(.all)
         }
     }
-
+    
     func placeholder() {
         
     }
@@ -255,19 +256,19 @@ struct MapView: View {
             print("momentUUID from mv: \(momentUUID)")
             
             // upload image to firebase storage
-//            self.image
+            //            self.image
             
-//            let imgRef = fbStorageRef.child("images/\(uuid)")
-//            guard let data = image.pngData() else {
-//                print("returned :(")
-//                return
-//            }
-//            let uploadTask = imgRef.putData(data, metadata: nil) { (metadata, error ) in
-//                guard let metadata = metadata else {
-//                    print("OOPS error")
-//                    return
-//                }
-//            }
+            //            let imgRef = fbStorageRef.child("images/\(uuid)")
+            //            guard let data = image.pngData() else {
+            //                print("returned :(")
+            //                return
+            //            }
+            //            let uploadTask = imgRef.putData(data, metadata: nil) { (metadata, error ) in
+            //                guard let metadata = metadata else {
+            //                    print("OOPS error")
+            //                    return
+            //                }
+            //            }
             
         } else {
             print("Your location is unknown")
@@ -302,95 +303,95 @@ struct MapView_Previews: PreviewProvider {
 let words = [
     "Sadie Klein",
     "Put some lipstick on, perfume your neck and slip your high heels on, rinse and curl your hair, loosen your hips and get a dress to wear.",
-
+    
     "Gerardo Mora",
     "We need not only a purpose in life to give meaning to our existence but also something to give meaning to our suffering. We need as much something to suffer for as something to live for.",
-
+    
     "Nickolas Norman",
     "They say: Do what you love and the money will come to you. Just ordered pizza, now I am waiting…",
-
+    
     "Donovan Flynn",
     "Life is an unfoldment, and the further we travel the more truth we can comprehend. To understand the things that are at our door is the best preparation for understanding those that lie beyond.",
-
+    
     "Peter Knapp",
     "Progress is impossible without change, and those who cannot change their minds cannot change anything.",
-
+    
     "Kimberly Bean",
     "No place is boring if you’ve had a good night’s sleep and have a pocket of unexposed film.",
-
+    
     "Yoselin Benson",
     "I always wonder why birds stay in the same place when they can fly anywhere on earth. Then I ask myself the same question.",
-
+    
     "Maddox Burnett",
-   "The use of traveling is to regulate imagination by reality, and instead of thinking how things may be, to see them as they are",
-
+    "The use of traveling is to regulate imagination by reality, and instead of thinking how things may be, to see them as they are",
+    
     "Antoine Hurley",
     "Because in the end, you won’t remember the time you spent in the office or mowing your lawn. Climb that goddamn mountain.",
-
+    
     "Kaden Evans",
     "Travel is more than seeing sights; It is a change that goes on, deep and permanent, In the ideas of living",
-
+    
     "Larry Franco",
     "Look for something positive in each day. Even if some days you have to look a little harder.",
-
+    
     "Ayanna Warner",
     "People will forget what you said. People will forget what you did, but people will never forget how you made them feel.",
-
+    
     "Yusuf Grimes",
     "You can’t go back and change the beginning, but you can start where you are and change the ending.",
-
+    
     "Hamza Shaffer",
     "Your life is a result of your choices. If you don’t like your life, it’s time to make some better choices.",
-
+    
     "Asia Abbott",
     "Sometimes the smallest step in the right direction ends up being the biggest step of your life. Tiptoe if you must, but take the step.",
-
+    
     "Anahi Hart",
     "Do appreciate where you are in your journey. Even if it’s not where you want to be. Every season serves a purpose.",
-
+    
     "Gordon Graham",
     "Push yourself because nobody is going to do it for you.",
-
+    
     "Bryson Mccarty",
     "When you are the bottom, they laugh about you. When you are on the top, they are jealous. You cannot please everybody, So stop trying and focus.",
-
+    
     "Jenny Matthews",
     "Nothing is IMPOSSIBLE. The word itself says, “I’M POSSIBLE.",
-
+    
     "Kimberly Spence",
     "You can pack for every occasion, but a good friend will always be the best thing you could bring!",
-
+    
     "Dalton Mitchell",
     "1 universe, 9 planets, 204 countries, 809 islands, 7 seas. And I had the privilege of meeting you.",
-
+    
     "Dayton Michael",
     "The alphabet begins with ABC, numbers begin with 123, music begins with do-re-mi, and friendship begins with you and me.",
-
+    
     "Angelo Parker",
     "The strong bond of friendship is not always a balanced equation; friendship is not always about giving and taking in equal shares. Instead, friendship is grounded in a feeling that you know exactly who will be there for you when you need something, no matter what or when.",
-
+    
     "Angelica Norris",
     "I am thankful for the nights that turned into mornings, friends that turned into family, and dreams that turned into reality.",
-
+    
     "Tripp Patton",
     "Making a million friends is not a miracle. The miracle is to make a friend who will stand by you when millions are against you.",
     
     "Ethan Odonnell",
     "That awkward moment when you’re wearing Nike’s and you can’t do it.",
-
+    
     "Celia Buckley",
     "I finally realized that people are prisoners of their phones. That’s why it’s called a “Cell” Phone.",
-
+    
     "Shamar Howell",
     "I haven’t worn these pants since I bought them. I should definitely pack them for my 3 days trip just in case.",
-
+    
     "Collin Perry",
     "Remember, we all stumble, every one of us. That’s why it’s a comfort to go hand in hand.",
-
+    
     "Alicia Hendricks",
     "You don’t find love, love finds you. It’s got a little bit to do with destiny, fate, and what’s written in the stars."
-
-
+    
+    
     
 ]
 
