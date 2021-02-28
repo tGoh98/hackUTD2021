@@ -16,7 +16,12 @@ struct hackUTD21App: App {
         FirebaseApp.configure()
         
         
-        let io:RequestIO = RequestIO(dbref: Database.database().reference())
+        
+//        let io:RequestIO = RequestIO(dbref: Database.database().reference())
+        
+//        modelData.feed = loadFeed(modelData: modelData, requestIo: io)
+        
+        
 //        let r = Route(id: UUID())
 //        io.createRoute(route: r)
 //        io.createUser(name: "Seung")
@@ -24,7 +29,9 @@ struct hackUTD21App: App {
         
 //        io.getUsers()
         
+        
     }
+    
     
     var body: some Scene {
         WindowGroup {

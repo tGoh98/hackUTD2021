@@ -12,6 +12,7 @@ struct FeedCard: View {
     var name: String
     var timeAdded: Date
     var desc: String
+    var moments: Array<Moment>
     @State var region: MKCoordinateRegion
     
     var body: some View {
@@ -27,7 +28,9 @@ struct FeedCard: View {
             Text(desc)
                 .padding(.vertical)
             
-            Map(coordinateRegion: $region)
+            Map(coordinateRegion: $region, annotationItems: moments) { moment in
+                MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))
+            }
                 .frame(minHeight:200, maxHeight: 300)
                 .padding(.vertical)
         }
@@ -43,7 +46,7 @@ struct FeedCard: View {
 
 struct FeedCard_Previews: PreviewProvider {
     static var previews: some View {
-        FeedCard(name: "name", timeAdded: Date(), desc: "descdescdesc", region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)))
+        FeedCard(name: "name", timeAdded: Date(), desc: "descdescdesc", moments: [Moment(contents: Item(strMsg: "asdf"), tags: ["ASDF","ASDF"], latitude: 0.0, longitude: 0.0)], region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)))
     }
 }
 

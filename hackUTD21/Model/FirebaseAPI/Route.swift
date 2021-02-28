@@ -15,13 +15,17 @@ class Route: Identifiable, Codable {
     var creator: UUID
     var distanceTraveled: Double
     var timeElapsed: Double
+    var name: String
+    var description: String
     
-    init(id: UUID = UUID(), visibility: Visibility, moments: Array<UUID> = [UUID](), creator: UUID, distanceTraveled: Double, timeElapsed: Double) {
+    init(id: UUID = UUID(), visibility: Visibility, moments: Array<UUID> = [UUID](), creator: UUID, distanceTraveled: Double, timeElapsed: Double, name: String, description: String) {
         self.id = id
         self.visibility = visibility
         self.moments = moments
         self.creator = creator
         self.distanceTraveled = distanceTraveled
         self.timeElapsed = timeElapsed
+        self.name = name
+        self.description = description
     }
 }
