@@ -15,7 +15,7 @@ struct ContentView: View {
             case 0:
                 Feed()
             case 1:
-                Feed()
+                StartPath()
             case 2:
                 MapView()
             default:
@@ -33,9 +33,9 @@ struct ContentView: View {
                         })
                         Spacer()
                         Button(action: {
-                            modelData.pageNum = 3
+                            modelData.pageNum = 1
                         }, label: {
-                            Text("+")
+                            Image(systemName: "mappin.and.ellipse")
                                 .font(.system(.largeTitle))
                                 .frame(width: 55, height: 50)
                                 .foregroundColor(Color.white)

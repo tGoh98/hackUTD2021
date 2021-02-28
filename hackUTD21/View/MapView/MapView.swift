@@ -12,7 +12,7 @@ import MapKit
 struct MapView: View {
     
     @EnvironmentObject var modelData: ModelData
-    let locationFetcher = LocationFetcher()
+    @ObservedObject var locationFetcher = LocationFetcher()
     
     @State private var userTrackingMode: MapUserTrackingMode = .follow
     @State private var region = MKCoordinateRegion(
@@ -23,8 +23,6 @@ struct MapView: View {
             longitudeDelta: 0.01
         )
     )
-    
-
     
     var body: some View {
         
@@ -37,6 +35,9 @@ struct MapView: View {
                 annotationItems: modelData.requestIo.moments
             ) { moment in
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))
+            }
+            if (locationFetcher.alerted) {
+                Text("alerted")
             }
             Button("Start Tracking Location") {
                 self.locationFetcher.start()

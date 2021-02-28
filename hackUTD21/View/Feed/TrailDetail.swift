@@ -14,17 +14,18 @@ struct TrailDetail: View {
     @State private var action: Int? = 0
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     
-    var btnBack : some View { Button(action: {
-        self.mode.wrappedValue.dismiss()
-        modelData.pageNum = 0
-    }) {
-        HStack {
-            Image(systemName: "chevron.left") // set image here
-                .aspectRatio(contentMode: .fit)
-            Text("Home")
-        }
-    }
-    }
+//    var btnBack : some View { Button(action: {
+//        self.mode.wrappedValue.dismiss()
+//        modelData.showFAB = true
+//        print("showFAB is now true")
+//    }) {
+//        HStack {
+//            Image(systemName: "chevron.left") // set image here
+//                .aspectRatio(contentMode: .fit)
+//            Text("Home")
+//        }
+//    }
+//    }
     
     var body: some View {
         VStack {
@@ -53,8 +54,8 @@ struct TrailDetail: View {
             Spacer()
             
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: btnBack)
+//        .navigationBarBackButtonHidden(true)
+//        .navigationBarItems(leading: btnBack)
     }
     
 }

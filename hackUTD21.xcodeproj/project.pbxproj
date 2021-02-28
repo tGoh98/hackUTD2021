@@ -12,6 +12,7 @@
 		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
 		C2715EB725EB33710018A581 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB625EB33710018A581 /* CardInfo.swift */; };
 		C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB925EB3DCE0018A581 /* TrailDetail.swift */; };
+		C2715EBE25EB63C70018A581 /* StartPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EBD25EB63C70018A581 /* StartPath.swift */; };
 		C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */; };
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		C26CDC3125EB012C002BBE14 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C2715EB625EB33710018A581 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		C2715EB925EB3DCE0018A581 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
+		C2715EBD25EB63C70018A581 /* StartPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPath.swift; sourceTree = "<group>"; };
 		C275A8D925EAC8D500E9778E /* hackUTD21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackUTD21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackUTD21App.swift; sourceTree = "<group>"; };
 		C275A8DE25EAC8D500E9778E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
 			);
 			path = MapView;
+			sourceTree = "<group>";
+		};
+		C2715EBC25EB63BC0018A581 /* Pathing */ = {
+			isa = PBXGroup;
+			children = (
+				C2715EBD25EB63C70018A581 /* StartPath.swift */,
+			);
+			path = Pathing;
 			sourceTree = "<group>";
 		};
 		C275A8D025EAC8D500E9778E = {
@@ -161,6 +171,7 @@
 		C2ABE66B25EAF70E007A8728 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2715EBC25EB63BC0018A581 /* Pathing */,
 				C2715EAB25EB0C730018A581 /* MapView */,
 				C2ABE66C25EAF76D007A8728 /* Feed */,
 			);
@@ -308,6 +319,7 @@
 				C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */,
 				C2EDD85125EAE011005D8E1E /* Moment.swift in Sources */,
 				C2ABE67325EAF788007A8728 /* Feed.swift in Sources */,
+				C2715EBE25EB63C70018A581 /* StartPath.swift in Sources */,
 				C275A90125EAD2B000E9778E /* Route.swift in Sources */,
 				C2EDD85425EAE181005D8E1E /* Item.swift in Sources */,
 				C2ABE67625EAF80B007A8728 /* FeedCard.swift in Sources */,

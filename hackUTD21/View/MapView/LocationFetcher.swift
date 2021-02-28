@@ -8,10 +8,11 @@
 import Foundation
 import CoreLocation
 
-class LocationFetcher: NSObject, CLLocationManagerDelegate {
+class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
     var lastKnownLocation: CLLocationCoordinate2D?
     var regions = [CLRegion]()
+    @Published var alerted: Bool = false
 
     override init() {
         super.init()
@@ -22,6 +23,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         monitorRegionAtLocation(center: CLLocationCoordinate2D(latitude: 29.71075045624731, longitude: -95.41610668658146), identifier: "Neighbor1")
+        alerted.toggle()
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

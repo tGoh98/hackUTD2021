@@ -31,7 +31,8 @@ struct Feed: View {
                         }
                         .onTapGesture {
                             self.action = 1
-                            modelData.pageNum = 1
+//                            modelData.showFAB = false
+//                            print("showFAB is now false")
                         }
                     }
                     .navigationTitle("Home")
