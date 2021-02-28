@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7983AA4225EAF85200D0FACD /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA4125EAF85200D0FACD /* MapView.swift */; };
 		7983AA4625EAFB7600D0FACD /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */; };
+		C21108FF25EBB1A2001428DC /* Congrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21108FE25EBB1A2001428DC /* Congrats.swift */; };
+		C211090325EBB4A5001428DC /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C211090225EBB4A5001428DC /* ConfettiSwiftUI */; };
+		C211090425EBB4A5001428DC /* ConfettiSwiftUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C211090225EBB4A5001428DC /* ConfettiSwiftUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26CDC3125EB012C002BBE14 /* ModelData.swift */; };
 		C2715EB725EB33710018A581 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB625EB33710018A581 /* CardInfo.swift */; };
 		C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB925EB3DCE0018A581 /* TrailDetail.swift */; };
@@ -33,6 +36,20 @@
 		E88DDBAD73977198A72157F3 /* Pods_hackUTD21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E79E163617FA1D1DBD8BB4 /* Pods_hackUTD21.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C211090525EBB4A6001428DC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C211090425EBB4A5001428DC /* ConfettiSwiftUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		252EEE279B13EF9F3EA433A7 /* Pods-hackUTD21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.release.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.release.xcconfig"; sourceTree = "<group>"; };
 		7983AA4125EAF85200D0FACD /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -40,6 +57,7 @@
 		7983AA4E25EB169700D0FACD /* TestLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation.gpx; sourceTree = "<group>"; };
 		7983AA5025EB180D00D0FACD /* TestLocation2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TestLocation2.gpx; sourceTree = "<group>"; };
 		9B51D83B53963A01072959C8 /* Pods-hackUTD21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackUTD21.debug.xcconfig"; path = "Target Support Files/Pods-hackUTD21/Pods-hackUTD21.debug.xcconfig"; sourceTree = "<group>"; };
+		C21108FE25EBB1A2001428DC /* Congrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Congrats.swift; sourceTree = "<group>"; };
 		C26CDC3125EB012C002BBE14 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		C2715EB625EB33710018A581 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		C2715EB925EB3DCE0018A581 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
@@ -71,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C211090325EBB4A5001428DC /* ConfettiSwiftUI in Frameworks */,
 				E88DDBAD73977198A72157F3 /* Pods_hackUTD21.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +124,7 @@
 				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
 				C2715ED225EB94330018A581 /* ImagePicker.swift */,
 				C2715ED525EB99450018A581 /* MyMoment.swift */,
+				C21108FE25EBB1A2001428DC /* Congrats.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -206,12 +226,16 @@
 				C275A8D625EAC8D500E9778E /* Frameworks */,
 				C275A8D725EAC8D500E9778E /* Resources */,
 				8B060D8B16595F53684F51AC /* [CP] Embed Pods Frameworks */,
+				C211090525EBB4A6001428DC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = hackUTD21;
+			packageProductDependencies = (
+				C211090225EBB4A5001428DC /* ConfettiSwiftUI */,
+			);
 			productName = hackUTD21;
 			productReference = C275A8D925EAC8D500E9778E /* hackUTD21.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +263,9 @@
 				Base,
 			);
 			mainGroup = C275A8D025EAC8D500E9778E;
+			packageReferences = (
+				C211090125EBB4A5001428DC /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+			);
 			productRefGroup = C275A8DA25EAC8D500E9778E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,6 +347,7 @@
 				C2EDD85125EAE011005D8E1E /* Moment.swift in Sources */,
 				C2ABE67325EAF788007A8728 /* Feed.swift in Sources */,
 				C2715EBE25EB63C70018A581 /* StartPath.swift in Sources */,
+				C21108FF25EBB1A2001428DC /* Congrats.swift in Sources */,
 				C275A90125EAD2B000E9778E /* Route.swift in Sources */,
 				C2EDD85425EAE181005D8E1E /* Item.swift in Sources */,
 				C2ABE67625EAF80B007A8728 /* FeedCard.swift in Sources */,
@@ -518,6 +546,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C211090125EBB4A5001428DC /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C211090225EBB4A5001428DC /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C211090125EBB4A5001428DC /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C275A8D125EAC8D500E9778E /* Project object */;
 }
