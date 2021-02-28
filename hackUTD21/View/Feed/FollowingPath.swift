@@ -14,6 +14,7 @@ struct FollowingPath: View {
     @ObservedObject var locationFetcher = LocationFetcher()
     @State private var momentCount: Int = 0
     @State private var timeElapsed: Int = 0
+    @State private var showMomentImg: Bool = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var image = UIImage()
@@ -112,7 +113,7 @@ struct FollowingPath: View {
                                     //                                    locationFetcher.trailStraightDistance = 0
                                     //                                    locationFetcher.trailDistance = 0
                                     //                                    self.timer.upstream.connect().cancel()
-                                    //                                    modelData.pageNum = 2
+                                    modelData.pageNum = 0
                                     //                                    modelData.createMomentCount = momentCount
                                 })
                                 {
@@ -132,20 +133,31 @@ struct FollowingPath: View {
                         }
                     }
                 }
-                if (self.showMomentDialog) {
-                    Text("found momentdialog")
-                }
                 if locationFetcher.geofenceTriggered == true {
                     Menu("You Just Found A Moment!") {
                         Button("Check it Out", action: {
-                            Image(systemName: "person.fill")
-                                .data(url: URL(string: locationFetcher.imgSrc)!)
-                                .scaledToFit()
-                                .padding()
+                            print(locationFetcher.imgSrc)
+                            self.showMomentImg.toggle()
                             self.momentCount += 1
                             placeholder()
                         })
                     }
+                }
+                if (self.showMomentImg) {
+                    VStack {
+                        HStack {
+                            Text("You found a moment!")
+                            Spacer()
+                        }
+                        Image(systemName: "person.fill")
+                            .data(url: URL(string: locationFetcher.imgSrc)!)
+                            .scaledToFit()
+                            .padding()
+                            .onTapGesture {
+                                self.showMomentImg.toggle()
+                            }
+                    }
+                    
                 }
             }
             .onAppear() {

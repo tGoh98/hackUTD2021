@@ -23,6 +23,8 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var lastLocation: CLLocation!
     @Published var imgSrc: String = ""
     
+    var tempImgSrc: String = ""
+    
     override init() {
         super.init()
         manager.delegate = self
@@ -94,23 +96,26 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
                     print("Error getting data \(error)")
                 }
                 else if snapshot.exists() {
+                    
                     print("Got data \(snapshot.value!)")
                     let v = snapshot.value as? NSDictionary
                     let imgSrc = v?["imgSrc"] as? String ?? ""
-                    self.imgSrc = imgSrc
+                    self.tempImgSrc = imgSrc
                 }
                 else {
                     print("No data available")
                 }
             }
+
             //            regions[identifier] = region
-            notifyEntry()
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: notifyEntry)
     }
     
     
     func notifyEntry() {
         geofenceTriggered = true
+        self.imgSrc = self.tempImgSrc
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
