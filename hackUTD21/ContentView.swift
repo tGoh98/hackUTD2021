@@ -9,11 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
+
     var body: some View {
         ZStack {
             switch (modelData.pageNum) {
             case 0:
+                
                 Feed()
+                
             case 1:
                 StartPath()
             default:
