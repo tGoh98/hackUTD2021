@@ -78,6 +78,7 @@ struct MapView: View {
                 trailBegan = true
                 modelData.requestIo.trailMomentUUIDs = [UUID]()
                 self.showVisibilityActionSheet = true
+                locationFetcher.trailStartTime = DispatchTime.now()
             }
             .actionSheet(isPresented: $showVisibilityActionSheet) {
                 ActionSheet(title: Text("Select Visibility"), message: Text("Choose a visibility for your new route."), buttons: [
@@ -100,9 +101,12 @@ struct MapView: View {
             Button("End Trail!") {
                 var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!)
                 trailBegan = false
+                locationFetcher.trailEndTime = DispatchTime.now()
             }
         }
     }
+    
+
     
     func placeholder() {
         
