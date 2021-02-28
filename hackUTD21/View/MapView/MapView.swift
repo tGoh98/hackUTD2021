@@ -50,8 +50,7 @@ struct MapView: View {
                 Menu("You Just Found A Moment!") {
                     Button("Check it Out", action: placeholder)
                 }
-                // reset
-//                locationFetcher.geofenceTriggered = false
+
             }
             
             Button("Read Location") {
