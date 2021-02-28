@@ -10,7 +10,7 @@ import MapKit
 
 class CardInfo: Identifiable {
     var id: UUID
-    var timeAdded: Date
+    var timeAdded: String
     var name: String
     var desc: String
     var moments: Array<Moment>
@@ -18,7 +18,7 @@ class CardInfo: Identifiable {
     var routeId: UUID
    
     
-    init(id: UUID = UUID(), timeAdded: Date = Date(), name: String = "name", desc: String = "desc", moments: Array<Moment> = [Moment](), routeId: UUID = UUID()) {
+    init(id: UUID = UUID(), timeAdded: String, name: String = "name", desc: String = "desc", moments: Array<Moment> = [Moment](),  routeId: UUID = UUID()) {
         self.id = id
         self.timeAdded = timeAdded
         self.name = name

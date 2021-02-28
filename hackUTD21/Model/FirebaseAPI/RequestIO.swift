@@ -106,11 +106,18 @@ class RequestIO {
 
     }
     
+    
+    func convertDate(date: Date) -> String {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        return df.string(from: date).replacingOccurrences(of: " ", with: " at ")
+    }
+    
     /* Route */
     
     /* create a new route */
-    func createRoute(currentUserUUID: UUID, distanceTraveled: Double, timeElapsed: Double, name: String, description: String) -> UUID {
-        var route = Route(visibility: trailVisibility, moments: trailMomentUUIDs, creator: currentUserUUID, distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description)
+    func createRoute(currentUserUUID: UUID, distanceTraveled: Double, timeElapsed: Double, name: String, description: String, timeCreated: Date = Date()) -> UUID {
+        var route = Route(visibility: trailVisibility, moments: trailMomentUUIDs, creator: currentUserUUID, distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description, timeCreated: convertDate(date: timeCreated))
         self.dbref.child("Route").child(route.id.uuidString).setValue(route.toDictionary)
         return route.id
     }
@@ -130,9 +137,10 @@ class RequestIO {
                 let timeElapsed = v?["timeElapsed"] as? Double ?? 0.0
                 let name = v?["name"] as? String ?? ""
                 let description = v?["description"] as? String ?? ""
-                
-                print(visibility, visibility.type)
-                let route = Route(id: UUID(uuidString: id) ?? UUID() , visibility: visibility, moments: moments.map { UUID(uuidString: $0) ?? UUID()}, creator: UUID(uuidString: creator) ?? UUID(), distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description)
+                let timeCreated = v?["timeCreated"] as? String ?? ""
+                print("Time Creates is" , timeCreated)
+//                print(visibility, visibility.type)
+                let route = Route(id: UUID(uuidString: id) ?? UUID() , visibility: visibility, moments: moments.map { UUID(uuidString: $0) ?? UUID()}, creator: UUID(uuidString: creator) ?? UUID(), distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description, timeCreated: timeCreated)
                 self.routes.append(route)
             }
         })
@@ -157,3 +165,5 @@ extension Encodable {
         return try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
     }
 }
+
+

@@ -36,7 +36,7 @@ func loadFeed(modelData: ModelData) {
     
     requestIo.routes.forEach {
         print("route id", $0.id)
-        ret.append(CardInfo(name: $0.name, desc: $0.description, moments: requestIo.getMomentsForRoute(routeId: $0.id), routeId: $0.id))
+        ret.append(CardInfo(timeAdded: $0.timeCreated, name: $0.name, desc: $0.description, moments: requestIo.getMomentsForRoute(routeId: $0.id), routeId: $0.id))
     }
 //    print(ret, ret[0].name, ret[0].moments)
 //
