@@ -106,11 +106,38 @@ struct MapView: View {
                 locationFetcher.trailStraightDistance = 0
                 locationFetcher.trailDistance = 0
             }
+            
+//            Button("Connect Annotations") {
+//                let ptr = UnsafePointer<CLLocationCoordinate2D> (modelData.requestIo.moments.map { CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude) })
+//
+//                let polyline = MKPolyline(coordinates: ptr, count: modelData.requestIo.moments.count)
+////                let renderer = MKPolylineRenderer(polyline: polyline)
+////                renderer.strokeColor = UIColor.orange
+////                renderer.lineWidth = 3
+//                self.mapView(self, rendererFor: polyline)
+//            }
+            
         }
     }
     
-
-    
+//    func mapView(_ mapView: MapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+//        if overlay is MKCircle {
+//            let renderer = MKCircleRenderer(overlay: overlay)
+//            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+//            renderer.strokeColor = UIColor.blue
+//            renderer.lineWidth = 2
+//            return renderer
+//
+//        } else if overlay is MKPolyline {
+//            let renderer = MKPolylineRenderer(overlay: overlay)
+//            renderer.strokeColor = UIColor.orange
+//            renderer.lineWidth = 3
+//            return renderer
+//        }
+//
+//        return MKOverlayRenderer()
+//    }
+//
     func placeholder() {
         
     }
