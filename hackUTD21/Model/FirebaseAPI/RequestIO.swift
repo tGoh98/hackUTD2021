@@ -88,13 +88,14 @@ class RequestIO {
     
     /* Route */
     
-    func createRoute(currentUserUUID: UUID) -> UUID {
-        var route = Route(visibility: trailVisibility, moments: trailMomentUUIDs, creator: currentUserUUID)
+    func createRoute(currentUserUUID: UUID, distanceTraveled: Double , timeElapsed: Double) -> UUID {
+        var route = Route(visibility: trailVisibility, moments: trailMomentUUIDs, creator: currentUserUUID, distanceTraveled: distanceTraveled, timeElapsed: timeElapsed)
         self.dbref.child("Route").child(route.id.uuidString).setValue(route.toDictionary)
         return route.id
     }
     
     /* Group */
+    
     
 }
 

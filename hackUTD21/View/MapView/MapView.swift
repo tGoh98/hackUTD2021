@@ -99,9 +99,12 @@ struct MapView: View {
             }
             
             Button("End Trail!") {
-                var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!)
+                var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!, distanceTraveled: locationFetcher.trailDistance, timeElapsed: locationFetcher.calculateTimeTaken())
+                
                 trailBegan = false
                 locationFetcher.trailEndTime = DispatchTime.now()
+                locationFetcher.trailStraightDistance = 0
+                locationFetcher.trailDistance = 0
             }
         }
     }
