@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseStorage
+import FirebaseDatabase
 
 struct MyMoment: View {
     @EnvironmentObject var modelData: ModelData
@@ -43,6 +44,7 @@ struct MyMoment: View {
                                   return
                                 }
                                 modelData.uploadURLs.append(url!)
+                                modelData.requestIo.dbref.child("Moment/\(momentUUID)/contents/imgSrc").setValue(url!.absoluteString)
                               }
                         }
                         showMomentDialog.toggle()
