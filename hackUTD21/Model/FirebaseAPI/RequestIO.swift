@@ -98,6 +98,7 @@ class RequestIO {
     /* get all moments within a route with routeId uuid. */
     func getMomentsForRoute(routeId: UUID) -> Array<Moment> {
         getMoments()
+        print("routeId: \(routeId)")
         let route = getRouteById(routeId: routeId)[0]
         let momentIdSet = Set<UUID>(route.moments.map { $0 })
         return moments.filter { momentIdSet.contains($0.id) }

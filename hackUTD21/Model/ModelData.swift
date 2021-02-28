@@ -20,7 +20,9 @@ final class ModelData: ObservableObject {
     @Published var currentUserUUID = UUID(uuidString: "eda6f5ac-6fd3-4d2e-9919-950dbe5947cb")
     @Published var feed: [CardInfo] = [CardInfo]()
     
-    
+    @Published var createdRouteId: UUID = UUID()
+    @Published var uploadURLs: Array<URL> = [URL]()
+    @Published var createMomentCount: Int = 0
 
 }
 
