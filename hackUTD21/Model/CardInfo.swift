@@ -15,9 +15,10 @@ class CardInfo: Identifiable {
     var desc: String
     var moments: Array<Moment>
     var firstCoord: CLLocationCoordinate2D
+    var routeId: UUID
    
     
-    init(id: UUID = UUID(), timeAdded: Date = Date(), name: String = "name", desc: String = "desc", moments: Array<Moment> = [Moment]()) {
+    init(id: UUID = UUID(), timeAdded: Date = Date(), name: String = "name", desc: String = "desc", moments: Array<Moment> = [Moment](), routeId: UUID = UUID()) {
         self.id = id
         self.timeAdded = timeAdded
         self.name = name
@@ -29,5 +30,6 @@ class CardInfo: Identifiable {
         else {
             self.firstCoord = CLLocationCoordinate2D(latitude: 29.7174, longitude: -95.4018)
         }
+        self.routeId = routeId
     }
 }

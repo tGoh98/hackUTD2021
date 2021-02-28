@@ -19,6 +19,8 @@ final class ModelData: ObservableObject {
     @Published var createdRouteId: UUID = UUID()
     @Published var uploadURLs: Array<URL> = [URL]()
     @Published var createMomentCount: Int = 0
+    
+    @Published var selectedRouteId: UUID = UUID()
 
 }
 
@@ -34,7 +36,7 @@ func loadFeed(modelData: ModelData) {
     
     requestIo.routes.forEach {
         print("route id", $0.id)
-        ret.append(CardInfo(name: $0.name, desc: $0.description, moments: requestIo.getMomentsForRoute(routeId: $0.id)))
+        ret.append(CardInfo(name: $0.name, desc: $0.description, moments: requestIo.getMomentsForRoute(routeId: $0.id), routeId: $0.id))
     }
 //    print(ret, ret[0].name, ret[0].moments)
 //

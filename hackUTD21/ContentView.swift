@@ -19,6 +19,8 @@ struct ContentView: View {
                 StartPath()
             case 2:
                 Congrats()
+            case 3:
+                FollowingPath()
             default:
                 Text("pageNum not found!")
             }

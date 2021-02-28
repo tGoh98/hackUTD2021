@@ -12,10 +12,10 @@ struct Feed: View {
     @EnvironmentObject var modelData: ModelData
     @State private var timeElapsed: Int = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
+    
     @State private var action: Int? = 0
     
-
+    
     var body: some View {
         
         ZStack {
@@ -28,18 +28,18 @@ struct Feed: View {
                             self.timer.upstream.connect().cancel()
                         } else {
                             loadFeed(modelData: modelData)
-//                            print(modelData.feed[0].name, modelData.feed[0].moments)
+                            //                            print(modelData.feed[0].name, modelData.feed[0].moments)
                         }
-
+                        
                         
                     })
                 NavigationView {
                     List(modelData.feed) { feedItem in
                         ZStack {
                             
-                            FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, moments: feedItem.moments, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+                            FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, routeId: feedItem.routeId, moments: feedItem.moments, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                             NavigationLink(
-                                destination: TrailDetail(card: FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, moments: feedItem.moments, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))),
+                                destination: TrailDetail(card: FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, routeId: feedItem.routeId, moments: feedItem.moments, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))),
                                 tag: 1,
                                 selection: $action
                             ) {
@@ -50,8 +50,8 @@ struct Feed: View {
                         }
                         .onTapGesture {
                             self.action = 1
-//                            modelData.showFAB = false
-//                            print("showFAB is now false")
+                            //                            modelData.showFAB = false
+                            //                            print("showFAB is now false")
                         }
                     }
                     .navigationTitle("Home")

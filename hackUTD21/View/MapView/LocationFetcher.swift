@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import FirebaseDatabase
 
 class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
@@ -20,6 +21,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var trailEndTime: DispatchTime = DispatchTime.now()
     @Published var startLocation: CLLocation!
     @Published var lastLocation: CLLocation!
+    @Published var imgSrc: String = ""
     
     override init() {
         super.init()
@@ -36,7 +38,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
         } else {
             nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds
         }
-//        var nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds// <<<<< Difference in nano seconds (UInt64)
+        //        var nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds// <<<<< Difference in nano seconds (UInt64)
         let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
         
         print("Time taken for this trail: \(timeInterval) seconds")
@@ -84,8 +86,24 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if let region = region as? CLCircularRegion {
-            let identifier = region.identifier
-            regions[identifier] = region
+            let identifier = region.identifier // this is moment's uuid
+            
+            let dbref = Database.database().reference()
+            dbref.child("/Moment/\(identifier)/contents").getData { (error, snapshot) in
+                if let error = error {
+                    print("Error getting data \(error)")
+                }
+                else if snapshot.exists() {
+                    print("Got data \(snapshot.value!)")
+                    let v = snapshot.value as? NSDictionary
+                    let imgSrc = v?["imgSrc"] as? String ?? ""
+                    self.imgSrc = imgSrc
+                }
+                else {
+                    print("No data available")
+                }
+            }
+            //            regions[identifier] = region
             notifyEntry()
         }
     }
