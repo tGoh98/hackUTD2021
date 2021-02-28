@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MapKit
+import FirebaseStorage
 
 
 struct MapView: View {
@@ -19,6 +20,7 @@ struct MapView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var image = UIImage()
+    @State var momentUUID: UUID = UUID()
     @State private var showMomentDialog: Bool = false
     @State private var isShowPhotoLibrary = false
     
@@ -198,7 +200,7 @@ struct MapView: View {
                     }
                 }
                 if (self.showMomentDialog) {
-                    MyMoment(showMomentDialog: $showMomentDialog, image: $image)
+                    MyMoment(showMomentDialog: $showMomentDialog, image: $image, momentUUID: $momentUUID)
                 }
             }
             //            if locationFetcher.geofenceTriggered == true {
@@ -240,11 +242,27 @@ struct MapView: View {
     func createMoment() {
         if let location = self.locationFetcher.lastKnownLocation {
             var item = Item(strMsg: "new moment!")
-            var uuid = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
+            momentUUID = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
             
             momentCount += 1
             // Add the moment UUID to trail moment array
-            modelData.requestIo.trailMomentUUIDs.append(uuid)
+            modelData.requestIo.trailMomentUUIDs.append(momentUUID)
+            print("momentUUID from mv: \(momentUUID)")
+            
+            // upload image to firebase storage
+//            self.image
+            
+//            let imgRef = fbStorageRef.child("images/\(uuid)")
+//            guard let data = image.pngData() else {
+//                print("returned :(")
+//                return
+//            }
+//            let uploadTask = imgRef.putData(data, metadata: nil) { (metadata, error ) in
+//                guard let metadata = metadata else {
+//                    print("OOPS error")
+//                    return
+//                }
+//            }
             
         } else {
             print("Your location is unknown")

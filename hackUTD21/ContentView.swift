@@ -35,7 +35,7 @@ struct ContentView: View {
                                 .padding(.bottom, 7)
                                 .padding(5)
                         })
-                        .background(Color.init(hex: "FF7800"))
+                        .background(Color.init(hex: "FE5722"))
                         .cornerRadius(38.5)
                         .padding()
                         .padding(.trailing)
