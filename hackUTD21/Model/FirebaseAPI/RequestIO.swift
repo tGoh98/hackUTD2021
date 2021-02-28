@@ -143,7 +143,8 @@ class RequestIO {
                 let name = v?["name"] as? String ?? ""
                 let description = v?["description"] as? String ?? ""
                 let timeCreated = v?["timeCreated"] as? String ?? ""
-
+                print(distanceTraveled)
+                
                 let route = Route(id: UUID(uuidString: id) ?? UUID() , visibility: visibility, moments: moments.map { UUID(uuidString: $0) ?? UUID()}, creator: UUID(uuidString: creator) ?? UUID(), distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description, timeCreated: timeCreated)
                 self.routes.append(route)
             }
