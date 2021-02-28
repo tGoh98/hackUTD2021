@@ -7,14 +7,19 @@
 
 import Foundation
 import FirebaseDatabase
+import MapKit
+
 
 class RequestIO {
     var dbref: DatabaseReference
     var users: Array<User>
+    var moments: Array<Moment>
     
     init(dbref: DatabaseReference) {
         self.dbref = dbref
         self.users = [User]()
+        self.moments = [Moment]()
+        getMoments()
     }
     
     /* Route */
@@ -28,7 +33,7 @@ class RequestIO {
     
     func createUser(name: String) {
         var user = User(name: name)
-        self.dbref.child("User").child(user.id.uuidString).setValue(user.toDictionnary)
+        self.dbref.child("User").child(user.id.uuidString).setValue(user.toDictionary)
     }
     
     func getUsers() {
@@ -47,7 +52,32 @@ class RequestIO {
         })
     }
     
+
+    /* Moment */
     
+    func createMoment(contents: Item, tags: Array<String>, coordinate: CLLocationCoordinate2D) {
+        var moment = Moment(contents: contents, tags: tags, latitude: coordinate.latitude, longitude: coordinate.longitude)
+        self.dbref.child("Moment").child(moment.id.uuidString).setValue(moment.toDictionary)
+    }
+    
+    func getMoments() {
+        self.dbref.child("Moment").observe(DataEventType.value, with: { (snapshot) in
+            let enumerator = snapshot.children
+            self.moments = [Moment]()
+            while let rest = enumerator.nextObject() as? DataSnapshot {
+                let v = rest.value as? NSDictionary
+                let id = v?["id"] as? UUID ?? UUID()
+                let contents = v?["contents"] as? Item ?? Item(strMsg: "new item")
+                let latitude = v?["latitude"] as? Double ?? 0.0
+                let longitude = v?["longitude"] as? Double ?? 0.0
+                let timeAdded = v?["timeAdded"] as? Date ?? Date()
+                let tags = v?["tags"] as? Array<String> ?? [String]()
+                
+                let moment = Moment(id: id, contents: contents, tags: tags, latitude: latitude, longitude: longitude)
+                self.moments.append(moment)
+            }
+        })
+    }
     
     
     /* Group */
@@ -56,7 +86,7 @@ class RequestIO {
 
 
 extension Encodable {
-    var toDictionnary: [String : Any]? {
+    var toDictionary: [String : Any]? {
         guard let data =  try? JSONEncoder().encode(self) else {
             return nil
         }

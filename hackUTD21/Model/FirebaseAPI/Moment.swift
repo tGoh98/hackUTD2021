@@ -6,19 +6,22 @@
 //
 
 import Foundation
+import MapKit
 
-class Moment: Identifiable {
+class Moment: Identifiable, Codable {
     var id: UUID
     var contents: Item
-    var location: String // TODO: change this to geo type
+    var latitude: Double
+    var longitude: Double
     var timeAdded: Date
     var tags: Array<String>
    
     
-    init(id: UUID = UUID(), contents: String, tags: Array<String>) {
+    init(id: UUID = UUID(), contents: Item, tags: Array<String>, latitude: Double, longitude: Double) {
         self.id = id
-        self.contents = Item(strMsg: contents)
-        self.location = "TODO: make a call and get it here"
+        self.contents = contents
+        self.latitude = latitude
+        self.longitude = longitude
         self.timeAdded = Date() // gets the current time
         self.tags = tags
     }

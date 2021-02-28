@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Item: Identifiable {
+class Item: Identifiable, Codable {
     var id: UUID
     var strMsg: String
     var imgSrc: String

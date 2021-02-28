@@ -8,40 +8,35 @@
 import SwiftUI
 import MapKit
 
-struct City: Identifiable {
-    let id = UUID()
-    let coordinate: CLLocationCoordinate2D
-}
 
 struct MapView: View {
-    let locationFetcher = LocationFetcher()
     
-    @State private var cities: [City] = [
-        City(coordinate: .init(latitude: 40.7128, longitude: -74.0060)),
-        City(coordinate: .init(latitude: 37.7749, longitude: 122.4194)),
-        City(coordinate: .init(latitude: 47.6062, longitude: 122.3321))
-    ]
+    @EnvironmentObject var modelData: ModelData
+    let locationFetcher = LocationFetcher()
     
     @State private var userTrackingMode: MapUserTrackingMode = .follow
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(
-            latitude: 40.7128, longitude: -74.0060),
+            latitude: 29.71097033151367, longitude:  -95.41502002886052),
         span: MKCoordinateSpan(
-            latitudeDelta: 10,
-            longitudeDelta: 10
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01
         )
     )
     
+
+    
     var body: some View {
+        
         VStack {
             Map(
                 coordinateRegion: $region,
                 interactionModes: MapInteractionModes.all,
                 showsUserLocation: true,
                 userTrackingMode: $userTrackingMode,
-                annotationItems: cities
-            ) { city in
-                MapMarker(coordinate: city.coordinate)
+                annotationItems: modelData.requestIo.moments
+            ) { moment in
+                MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))
             }
             Button("Start Tracking Location") {
                 self.locationFetcher.start()
@@ -55,10 +50,33 @@ struct MapView: View {
                     print("Your location is unknown")
                 }
             }
+            Button("Create Moment") {
+                if let location = self.locationFetcher.lastKnownLocation {
+                    var item = Item(strMsg: "new moment!")
+                    modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
+                    print("Moment Created at \(location)")
+                    
+                    self.region.center.latitude = location.latitude + 0.000001
+                    self.region.center.longitude = location.longitude + 0.00001
+                    self.region.center.latitude = location.latitude - 0.000001
+                    self.region.center.longitude = location.longitude - 0.00001
+                    
+                } else {
+                    print("Your location is unknown")
+                }
+            }
         }
-        
     }
+    
+    func getCurrentLocation() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(
+            latitude: locationFetcher.lastKnownLocation?.latitude ?? 0.0,
+            longitude: locationFetcher.lastKnownLocation?.longitude ?? 0.0)
+    }
+    
+
 }
+
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
