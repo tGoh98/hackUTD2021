@@ -58,14 +58,14 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
         lastKnownLocation = locations.first?.coordinate
         
         if startLocation == nil {
-            startLocation = locations.first
+            self.startLocation = locations.first
         } else if let location = locations.last {
-            trailDistance += lastLocation.distance(from: location) / 1609 // convert meters to feet
-            trailStraightDistance += startLocation.distance(from: locations.last!) / 1609
-            print("Traveled Distance:",  trailDistance)
-            print("Straight Distance:", startLocation.distance(from: locations.last!))
+            self.trailDistance += Double(lastLocation.distance(from: location)) / 1609.0 // convert meters to feet
+            self.trailStraightDistance += Double(startLocation.distance(from: locations.last!)) / 1609.0
+            print("Traveled Distance:",  self.trailDistance)
+            print("Straight Distance:", self.startLocation.distance(from: locations.last!))
         }
-        lastLocation = locations.last
+        self.lastLocation = locations.last
         print(lastLocation.coordinate.latitude, lastLocation.coordinate.longitude)
     }
     
