@@ -23,7 +23,9 @@ struct MapView: View {
     @State var momentUUID: UUID = UUID()
     @State private var showMomentDialog: Bool = false
     @State private var isShowPhotoLibrary = false
+    @State private var isShowMomentInput = false
     @State private var curMoments: Array<Moment> = [Moment]()
+    @State private var caption: String = ""
     
     @State private var showingCreateMomentAlert = false
     @State private var trailBegan = false
@@ -122,7 +124,7 @@ struct MapView: View {
                                 Spacer()
                                 Button(action: {
                                     if (trailBegan) {
-                                        self.isShowPhotoLibrary = true
+                                        self.isShowMomentInput = true
                                         self.showMomentDialog = true
                                         
                                         createMoment()
@@ -215,22 +217,38 @@ struct MapView: View {
                 if (self.showMomentDialog) {
                     MyMoment(showMomentDialog: $showMomentDialog, image: $image, momentUUID: $momentUUID)
                 }
+                if (self.isShowMomentInput) {
+                    VStack {
+                            HStack {
+                                Text("What message would you like to leave at this moment?")
+                                    .font(.title2)
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                                Spacer()
+                            }
+                        TextField("Such a beautiful sunset!", text: $caption)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding()
+                        Button(action: {
+                            self.isShowPhotoLibrary.toggle()
+                            self.isShowMomentInput.toggle()
+                        }) {
+                            Image(systemName:"camera")
+                        }
+                        .padding(.bottom)
+                    }
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 8.0))
+                    .shadow(radius: 1)
+                    .padding()
+                    
+                }
             }
-            //            if locationFetcher.geofenceTriggered == true {
-            //                Menu("You Just Found A Moment!") {
-            //                    Button("Check it Out", action: placeholder)
-            //                }
-            //
-            //            }
         }
         .sheet(isPresented: $isShowPhotoLibrary) {
             ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
                 .edgesIgnoringSafeArea(.all)
         }
-    }
-
-    func placeholder() {
-        
     }
     
     func getTimeStr(seconds: Int) -> String {
@@ -254,7 +272,7 @@ struct MapView: View {
     
     func createMoment() {
         if let location = self.locationFetcher.lastKnownLocation {
-            var item = Item(strMsg: "new moment!")
+            var item = Item(strMsg: caption)
             let newMoment: Moment = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
             
             momentUUID = newMoment.id

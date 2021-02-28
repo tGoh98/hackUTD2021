@@ -83,7 +83,7 @@ class RequestIO {
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 let v = rest.value as? NSDictionary
                 let id = v?["id"] as? String ?? ""
-                let contents = v?["contents"] as? Item ?? Item(strMsg: "new item")
+                let contents = v?["contents"] as? Item ?? Item(strMsg: "I love this view!")
                 let latitude = v?["latitude"] as? Double ?? 0.0
                 let longitude = v?["longitude"] as? Double ?? 0.0
 //                let timeAdded = v?["timeAdded"] as? Date ?? Date()
@@ -94,6 +94,15 @@ class RequestIO {
             }
             print("local moments is \(self.moments)")
         })
+    }
+    
+    func getMoment(uuid: String) -> Moment {
+        for moment in moments {
+            if (moment.id.uuidString == uuid) {
+                return moment
+            }
+        }
+        return moments[0]
     }
 
     /* get all moments within a route with routeId uuid. */

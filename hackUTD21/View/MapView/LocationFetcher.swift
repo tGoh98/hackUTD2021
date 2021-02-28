@@ -22,6 +22,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var startLocation: CLLocation!
     @Published var lastLocation: CLLocation!
     @Published var imgSrc: String = ""
+    @Published var identifier: String = ""
     
     var tempImgSrc: String = ""
     
@@ -79,7 +80,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
             let region = CLCircularRegion(center: center,
                                           radius: maxDistance, identifier: identifier)
             region.notifyOnEntry = true
-            region.notifyOnExit = true
+            region.notifyOnExit = false
             
             manager.startMonitoring(for: region)
             
@@ -88,7 +89,7 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         if let region = region as? CLCircularRegion {
-            let identifier = region.identifier // this is moment's uuid
+            identifier = region.identifier // this is moment's uuid
             
             let dbref = Database.database().reference()
             dbref.child("/Moment/\(identifier)/contents").getData { (error, snapshot) in

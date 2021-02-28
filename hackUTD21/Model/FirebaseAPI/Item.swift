@@ -8,13 +8,13 @@
 import Foundation
 
 class Item: Identifiable, Codable {
-    var id: UUID
+    var id: String
     var strMsg: String
     var imgSrc: String
     var vidSrc: String
    
     init(id: UUID = UUID(), strMsg: String) {
-        self.id = id
+        self.id = id.uuidString
         self.strMsg = strMsg
         self.imgSrc = "imgSrc"
         self.vidSrc = "vidSrc"

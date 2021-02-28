@@ -144,7 +144,9 @@ struct FollowingPath: View {
                     }
                 }
                 if (self.showMomentImg) {
-                    FoundMoment(imageSource: locationFetcher.imgSrc)
+                    let momeId = modelData.requestIo.getMoment(uuid: locationFetcher.identifier)
+                    
+                    FoundMoment(imageSource: locationFetcher.imgSrc, caption: momeId.contents.strMsg)
                         .onTapGesture {
                             self.showMomentImg.toggle()
                         }

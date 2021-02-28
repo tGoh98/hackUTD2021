@@ -9,10 +9,11 @@ import SwiftUI
 
 struct FoundMoment: View {
     var imageSource: String
+    var caption: String
     var body: some View {
         VStack {
             HStack {
-                Text("Nice! You found a moment!")
+                Text("Nice! You found a moment! There's a message attached...\"\(self.caption)\"")
                     .font(.title2)
                     .padding(.horizontal)
                     .padding(.top)
@@ -32,6 +33,6 @@ struct FoundMoment: View {
 
 struct FoundMoment_Previews: PreviewProvider {
     static var previews: some View {
-        FoundMoment(imageSource: "https://firebasestorage.googleapis.com/v0/b/hackutd21.appspot.com/o/images%2FEA2333B8-3DBE-4986-8B6F-290FFDD5B3AB?alt=media&token=b192c495-baca-471e-873d-b7a6e3fefda1")
+        FoundMoment(imageSource: "https://firebasestorage.googleapis.com/v0/b/hackutd21.appspot.com/o/images%2FEA2333B8-3DBE-4986-8B6F-290FFDD5B3AB?alt=media&token=b192c495-baca-471e-873d-b7a6e3fefda1", caption: "This is not a caption")
     }
 }
