@@ -38,6 +38,7 @@ struct MapView: View {
     )
     
     
+
     init(started: Binding<Bool>) {
         self._started = started
         self.locationFetcher.start()
@@ -173,7 +174,8 @@ struct MapView: View {
                                     }
                                     
                                     Button (action: {
-                                        var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!, distanceTraveled: locationFetcher.trailDistance, timeElapsed: locationFetcher.calculateTimeTaken())
+                                        // TODO: add in support for name and description input from user
+                                        var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!, distanceTraveled: locationFetcher.trailDistance, timeElapsed: locationFetcher.calculateTimeTaken(), name: "name here!", description: "description here!")
                                         trailBegan = false
                                         locationFetcher.trailEndTime = DispatchTime.now()
                                         locationFetcher.trailStraightDistance = 0
@@ -278,6 +280,7 @@ struct MapView: View {
         Menu("options") {
         }
     }
+    
     
 }
 

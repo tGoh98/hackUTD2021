@@ -18,28 +18,39 @@ final class ModelData: ObservableObject {
     //    @Published var showFAB: Bool = false
     @Published var requestIo = RequestIO(dbref: Database.database().reference())
     @Published var currentUserUUID = UUID(uuidString: "eda6f5ac-6fd3-4d2e-9919-950dbe5947cb")
-
-    var feed: [CardInfo] = loadFeed()
+    @Published var feed: [CardInfo] = [CardInfo]()
+    
     
 
 }
 
 
 
-func loadFeed() -> [CardInfo] {
+func loadFeed(modelData: ModelData) {
+    let requestIo = modelData.requestIo
     var ret = [CardInfo]()
     
-    // TODO: this is dummy data that needs to be grabbed from firebase db
-    ret.append(CardInfo(name: "tim", desc: "msg1"))
-    ret.append(CardInfo(name: "tim", desc: "msg2"))
-    ret.append(CardInfo(name: "tim", desc: "msg3"))
-    ret.append(CardInfo(name: "tim", desc: "msg4"))
-    ret.append(CardInfo(name: "tim", desc: "msg5"))
-    ret.append(CardInfo(name: "tim", desc: "msg6"))
-    ret.append(CardInfo(name: "tim", desc: "msg7"))
-    ret.append(CardInfo(name: "tim", desc: "msg8"))
-    ret.append(CardInfo(name: "tim", desc: "msg9"))
-    ret.append(CardInfo(name: "tim", desc: "msg10"))
+    requestIo.getRoutes()
+    requestIo.getMoments()
     
-    return ret
+    
+    requestIo.routes.forEach {
+        ret.append(CardInfo(name: $0.name, desc: $0.description, moments: requestIo.getMomentsForRoute(routeId: $0.id)))
+    }
+    print(ret)
+    
+    // TODO: this is dummy data that needs to be grabbed from firebase db
+//    ret.append(CardInfo(name: "tim", desc: "msg1"))
+//    ret.append(CardInfo(name: "tim", desc: "msg2"))
+//    ret.append(CardInfo(name: "tim", desc: "msg3"))
+//    ret.append(CardInfo(name: "tim", desc: "msg4"))
+//    ret.append(CardInfo(name: "tim", desc: "msg5"))
+//    ret.append(CardInfo(name: "tim", desc: "msg6"))
+//    ret.append(CardInfo(name: "tim", desc: "msg7"))
+//    ret.append(CardInfo(name: "tim", desc: "msg8"))
+//    ret.append(CardInfo(name: "tim", desc: "msg9"))
+//    ret.append(CardInfo(name: "tim", desc: "msg10"))
+    
+    modelData.feed = ret
+//        return ret
 }
