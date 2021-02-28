@@ -76,6 +76,7 @@ struct MapView: View {
                         Button (action: {
                             trailBegan = true
                             modelData.requestIo.trailMomentUUIDs = [UUID]()
+                            modelData.trailDist = 0
                             self.showVisibilityActionSheet = true
                             locationFetcher.trailStartTime = DispatchTime.now()
                         })
@@ -125,7 +126,6 @@ struct MapView: View {
                                 Button(action: {
                                     if (trailBegan) {
                                         self.isShowMomentInput = true
-                                        self.showMomentDialog = true
                                         
                                         createMoment()
                                         DispatchQueue.global().asyncAfter(deadline: .now() +  .milliseconds(500)) {
@@ -133,6 +133,8 @@ struct MapView: View {
                                             self.region.center.latitude = location.latitude + 0.000001
                                             self.region.center.latitude = location.latitude - 0.000001
                                         }
+                                        self.showMomentDialog = true
+                                        self.image = UIImage()
                                     } else {
                                         showingCreateMomentAlert = true
                                     }
@@ -167,6 +169,11 @@ struct MapView: View {
                                                 .onReceive(timer, perform: { _ in
                                                     if (started) {
                                                         timeElapsed += 1
+                                                        if (locationFetcher.trailDistance > modelData.trailDist) {
+                                                            modelData.trailDist = locationFetcher.trailDistance
+                                                        } else {
+                                                            locationFetcher.trailDistance = modelData.trailDist
+                                                        }
                                                     }
                                                 })
                                                 .font(.title)

@@ -21,6 +21,7 @@ final class ModelData: ObservableObject {
     @Published var createMomentCount: Int = 0
     
     @Published var selectedRouteId: UUID = UUID()
+    var trailDist: Double = 0
 
 }
 
