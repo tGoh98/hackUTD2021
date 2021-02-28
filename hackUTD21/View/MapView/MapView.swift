@@ -14,6 +14,9 @@ struct MapView: View {
     @EnvironmentObject var modelData: ModelData
     @ObservedObject var locationFetcher = LocationFetcher()
     @Binding var started: Bool
+    @State private var momentCount: Int = 0
+    @State private var timeElapsed: Int = 0
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var showingCreateMomentAlert = false
     @State private var trailBegan = false
@@ -139,7 +142,12 @@ struct MapView: View {
                                             .frame(width: 1, height: 50)
                                         VStack {
                                             Text("Time")
-                                            Text("0:00")
+                                            Text("\(getTimeStr(seconds: timeElapsed))")
+                                                .onReceive(timer, perform: { _ in
+                                                    if (started) {
+                                                        timeElapsed += 1
+                                                    }
+                                                })
                                                 .font(.title)
                                         }
                                         .padding()
@@ -148,16 +156,19 @@ struct MapView: View {
                                             .frame(width: 1, height: 50)
                                         VStack {
                                             Text("Moments")
-                                            Text("0")
+                                            Text("\(momentCount)")
                                                 .font(.title)
                                         }
                                         .padding()
                                     }
                                     
                                     Button (action: {
-                                        var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!)
+                                        var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!, distanceTraveled: locationFetcher.trailDistance, timeElapsed: locationFetcher.calculateTimeTaken())
                                         trailBegan = false
                                         locationFetcher.trailEndTime = DispatchTime.now()
+                                        locationFetcher.trailStraightDistance = 0
+                                        locationFetcher.trailDistance = 0
+                                        self.timer.upstream.connect().cancel()
                                     })
                                     {
                                         Text("Finish")
@@ -179,7 +190,6 @@ struct MapView: View {
                     }
                 }
             }
-            
             //            if locationFetcher.geofenceTriggered == true {
             //                Menu("You Just Found A Moment!") {
             //                    Button("Check it Out", action: placeholder)
@@ -193,6 +203,15 @@ struct MapView: View {
     
     func placeholder() {
         
+    }
+    
+    func getTimeStr(seconds: Int) -> String {
+        let mins = seconds / 60
+        let secs = seconds % 60
+        if (secs < 10) {
+            return "\(mins):0\(secs)"
+        }
+        return "\(mins):\(secs)"
     }
     
     func centerMap() {
@@ -210,7 +229,7 @@ struct MapView: View {
             var item = Item(strMsg: "new moment!")
             var uuid = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
             
-            
+            momentCount += 1
             // Add the moment UUID to trail moment array
             modelData.requestIo.trailMomentUUIDs.append(uuid)
             

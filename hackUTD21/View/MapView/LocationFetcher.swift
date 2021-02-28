@@ -28,11 +28,19 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     }
     
     func calculateTimeTaken() -> Double {
-        let nanoTime = trailEndTime.uptimeNanoseconds - trailStartTime.uptimeNanoseconds // <<<<< Difference in nano seconds (UInt64)
+        print(trailEndTime.uptimeNanoseconds)
+        print(trailStartTime.uptimeNanoseconds)
+        let nanoTime: UInt64
+        if (trailEndTime.uptimeNanoseconds > trailStartTime.uptimeNanoseconds) {
+            nanoTime = trailEndTime.uptimeNanoseconds - trailStartTime.uptimeNanoseconds
+        } else {
+            nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds
+        }
+//        var nanoTime = trailStartTime.uptimeNanoseconds - trailEndTime.uptimeNanoseconds// <<<<< Difference in nano seconds (UInt64)
         let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
         
         print("Time taken for this trail: \(timeInterval) seconds")
-        return timeInterval
+        return timeInterval // returns seconds
     }
     
     func start() {
