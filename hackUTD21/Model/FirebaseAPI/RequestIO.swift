@@ -54,12 +54,12 @@ class RequestIO {
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 let v = rest.value as? NSDictionary
-                let id = v?["id"] as? UUID ?? UUID()
+                let id = v?["id"] as? String ?? ""
                 let name = v?["name"] as? String ?? ""
-                let groups = v?["groups"] as? Array<UUID> ?? [UUID]()
-                let routes = v?["routes"] as? Array<UUID> ?? [UUID]()
+                let groups = v?["groups"] as? Array<String> ?? [String]()
+                let routes = v?["routes"] as? Array<String> ?? [String]()
                 
-                let user = User(id: id, name: name, groups: groups, routes: routes)
+                let user = User(id: UUID(uuidString: id) ?? UUID(), name: name, groups: groups.map { UUID(uuidString: $0) ?? UUID() }, routes: routes.map { UUID(uuidString: $0) ?? UUID() })
                 self.users.append(user)
             }
         })
@@ -82,24 +82,27 @@ class RequestIO {
             self.moments = [Moment]()
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 let v = rest.value as? NSDictionary
-                let id = v?["id"] as? UUID ?? UUID()
+                let id = v?["id"] as? String ?? ""
                 let contents = v?["contents"] as? Item ?? Item(strMsg: "new item")
                 let latitude = v?["latitude"] as? Double ?? 0.0
                 let longitude = v?["longitude"] as? Double ?? 0.0
 //                let timeAdded = v?["timeAdded"] as? Date ?? Date()
                 let tags = v?["tags"] as? Array<String> ?? [String]()
-                
-                let moment = Moment(id: id, contents: contents, tags: tags, latitude: latitude, longitude: longitude)
+                print("Moments id : ", id)
+                let moment = Moment(id: UUID(uuidString: id) ?? UUID(), contents: contents, tags: tags, latitude: latitude, longitude: longitude)
                 self.moments.append(moment)
             }
+            print("local moments is \(self.moments)")
         })
     }
 
     /* get all moments within a route with routeId uuid. */
     func getMomentsForRoute(routeId: UUID) -> Array<Moment> {
-        getMoments()
+//        getMoments(
         let route = getRouteById(routeId: routeId)[0]
+        print("route is ", route, route.moments)
         let momentIdSet = Set<UUID>(route.moments.map { $0 })
+        print("momentIdSet is ", momentIdSet)
         return moments.filter { momentIdSet.contains($0.id) }
 
     }
@@ -120,16 +123,17 @@ class RequestIO {
             self.routes = [Route]()
             while let rest = enumerator.nextObject() as? DataSnapshot {
                 let v = rest.value as? NSDictionary
-                let id = v?["id"] as? UUID ?? UUID()
+                let id = v?["id"] as? String ?? ""
                 let visibility = v?["visibility"] as? Visibility ?? Visibility(type: 0)
-                let moments = v?["moments"] as? Array<UUID> ?? [UUID]()
-                let creator = v?["creator"] as? UUID ?? UUID()
+                let moments = v?["moments"] as? Array<String> ?? [String]()
+                let creator = v?["creator"] as? String ?? ""
                 let distanceTraveled = v?["distanceTraveled"] as? Double ?? 0.0
                 let timeElapsed = v?["timeElapsed"] as? Double ?? 0.0
                 let name = v?["name"] as? String ?? ""
                 let description = v?["description"] as? String ?? ""
                 
-                let route = Route(id: id, visibility: visibility, moments: moments, creator: creator, distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description)
+                print(visibility, visibility.type)
+                let route = Route(id: UUID(uuidString: id) ?? UUID() , visibility: visibility, moments: moments.map { UUID(uuidString: $0) ?? UUID()}, creator: UUID(uuidString: creator) ?? UUID(), distanceTraveled: distanceTraveled, timeElapsed: timeElapsed, name: name, description: description)
                 self.routes.append(route)
             }
         })

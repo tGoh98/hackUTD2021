@@ -12,7 +12,7 @@ struct FeedCard: View {
     var name: String
     var timeAdded: Date
     var desc: String
-    var moments: Array<Moment>
+    @State var moments: Array<Moment>
     @State var region: MKCoordinateRegion
     
     var body: some View {
@@ -27,6 +27,9 @@ struct FeedCard: View {
             
             Text(desc)
                 .padding(.vertical)
+                .onAppear(perform: {
+                    print("feed moments", moments)
+                })
             
             Map(coordinateRegion: $region, annotationItems: moments) { moment in
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))

@@ -213,7 +213,7 @@ struct MapView: View {
             //            }
         }
         .sheet(isPresented: $isShowPhotoLibrary) {
-            ImagePicker(selectedImage: self.$image, sourceType: .camera)
+            ImagePicker(selectedImage: self.$image, sourceType: .photoLibrary)
                 .edgesIgnoringSafeArea(.all)
         }
     }

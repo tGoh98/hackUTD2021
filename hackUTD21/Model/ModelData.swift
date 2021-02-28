@@ -30,15 +30,16 @@ func loadFeed(modelData: ModelData) {
     let requestIo = modelData.requestIo
     var ret = [CardInfo]()
     
-    requestIo.getRoutes()
-    requestIo.getMoments()
+//    requestIo.getRoutes()
+//    requestIo.getMoments()
     
     
     requestIo.routes.forEach {
+        print("route id", $0.id)
         ret.append(CardInfo(name: $0.name, desc: $0.description, moments: requestIo.getMomentsForRoute(routeId: $0.id)))
     }
-    print(ret)
-    
+//    print(ret, ret[0].name, ret[0].moments)
+//
     // TODO: this is dummy data that needs to be grabbed from firebase db
 //    ret.append(CardInfo(name: "tim", desc: "msg1"))
 //    ret.append(CardInfo(name: "tim", desc: "msg2"))

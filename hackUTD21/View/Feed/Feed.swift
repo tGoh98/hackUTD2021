@@ -28,6 +28,7 @@ struct Feed: View {
                             self.timer.upstream.connect().cancel()
                         } else {
                             loadFeed(modelData: modelData)
+//                            print(modelData.feed[0].name, modelData.feed[0].moments)
                         }
 
                         
@@ -35,6 +36,7 @@ struct Feed: View {
                 NavigationView {
                     List(modelData.feed) { feedItem in
                         ZStack {
+                            
                             FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, moments: feedItem.moments, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
                             NavigationLink(
                                 destination: TrailDetail(card: FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, moments: feedItem.moments, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))),
