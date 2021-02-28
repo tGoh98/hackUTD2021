@@ -14,11 +14,11 @@ struct ContentView: View {
         ZStack {
             switch (modelData.pageNum) {
             case 0:
-                
                 Feed()
-                
             case 1:
                 StartPath()
+            case 2:
+                Congrats()
             default:
                 Text("pageNum not found!")
             }

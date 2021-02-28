@@ -98,7 +98,6 @@ class RequestIO {
 
     /* get all moments within a route with routeId uuid. */
     func getMomentsForRoute(routeId: UUID) -> Array<Moment> {
-//        getMoments(
         let route = getRouteById(routeId: routeId)[0]
         print("route is ", route, route.moments)
         let momentIdSet = Set<UUID>(route.moments.map { $0 })

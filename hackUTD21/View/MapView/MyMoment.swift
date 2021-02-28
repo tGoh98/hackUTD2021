@@ -7,9 +7,10 @@
 
 import SwiftUI
 import FirebaseStorage
+import FirebaseDatabase
 
 struct MyMoment: View {
-    
+    @EnvironmentObject var modelData: ModelData
     @Binding var showMomentDialog: Bool
     @Binding var image: UIImage
     @Binding var momentUUID: UUID
@@ -29,8 +30,24 @@ struct MyMoment: View {
                         let metadata = StorageMetadata()
                         metadata.contentType = "image/jpeg"
                         
-                        let uploadTask = ref.putData(data, metadata: metadata)
-                            showMomentDialog.toggle()
+                        let uploadTask = ref.putData(data, metadata: metadata) { (metadata, error) in
+                            guard let metadata = metadata else {
+                                // Uh-oh, an error occurred!
+                                return
+                              }
+                              // Metadata contains file metadata such as size, content-type.
+                              let size = metadata.size
+                              // You can also access to download URL after upload.
+                              ref.downloadURL { (url, error) in
+                                guard let downloadURL = url else {
+                                  // Uh-oh, an error occurred!
+                                  return
+                                }
+                                modelData.uploadURLs.append(url!)
+                                modelData.requestIo.dbref.child("Moment/\(momentUUID)/contents/imgSrc").setValue(url!.absoluteString)
+                              }
+                        }
+                        showMomentDialog.toggle()
                     }) {
                         Image(systemName: "chevron.left")
                             .foregroundColor(Color.init(hex: "FE5722"))

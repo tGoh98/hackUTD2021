@@ -176,11 +176,14 @@ struct MapView: View {
                                     Button (action: {
                                         // TODO: add in support for name and description input from user
                                         var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!, distanceTraveled: locationFetcher.trailDistance, timeElapsed: locationFetcher.calculateTimeTaken(), name: "name here!", description: "description here!")
+                                        modelData.createdRouteId = uuid
                                         trailBegan = false
                                         locationFetcher.trailEndTime = DispatchTime.now()
                                         locationFetcher.trailStraightDistance = 0
                                         locationFetcher.trailDistance = 0
                                         self.timer.upstream.connect().cancel()
+                                        modelData.pageNum = 2
+                                        modelData.createMomentCount = momentCount
                                     })
                                     {
                                         Text("Finish")
