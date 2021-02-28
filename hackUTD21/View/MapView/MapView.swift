@@ -12,7 +12,7 @@ import MapKit
 struct MapView: View {
     
     @EnvironmentObject var modelData: ModelData
-    let locationFetcher = LocationFetcher()
+    @ObservedObject var locationFetcher = LocationFetcher()
     
     @State private var showingCreateMomentAlert = false
     @State private var trailBegan = false
@@ -27,9 +27,13 @@ struct MapView: View {
         )
     )
     
-    
+
+    init() {
+        self.locationFetcher.start()
+    }
     
     var body: some View {
+        
         
         VStack {
             Map(
@@ -41,18 +45,17 @@ struct MapView: View {
             ) { moment in
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))
             }
-            Button("Start Tracking Location") {
-                self.locationFetcher.start()
+            
+            if locationFetcher.geofenceTriggered == true {
+                Menu("You Just Found A Moment!") {
+                    Button("Check it Out", action: placeholder)
+                }
+                // reset 
+                locationFetcher.geofenceTriggered = false
             }
             
             Button("Read Location") {
-                if let location = self.locationFetcher.lastKnownLocation {
-                    print("Your location is \(location)")
-                    self.region.center.latitude = location.latitude
-                    self.region.center.longitude = location.longitude
-                } else {
-                    print("Your location is unknown")
-                }
+                centerMap()
             }
             
             Button("Create Moment") {
@@ -101,6 +104,19 @@ struct MapView: View {
         }
     }
     
+    func placeholder() {
+        
+    }
+    
+    func centerMap() {
+        if let location = self.locationFetcher.lastKnownLocation {
+            print("Your location is \(location)")
+            self.region.center.latitude = location.latitude
+            self.region.center.longitude = location.longitude
+        } else {
+            print("Your location is unknown")
+        }
+    }
     
     func createMoment() {
         if let location = self.locationFetcher.lastKnownLocation {
@@ -121,6 +137,10 @@ struct MapView: View {
             longitude: locationFetcher.lastKnownLocation?.longitude ?? 0.0)
     }
     
+    func enteredFence() {
+        Menu("options") {
+        }
+    }
     
 }
 

@@ -8,14 +8,17 @@
 import Foundation
 import CoreLocation
 
-class LocationFetcher: NSObject, CLLocationManagerDelegate {
+class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     let manager = CLLocationManager()
     var lastKnownLocation: CLLocationCoordinate2D?
     var regions = [CLRegion]()
-
+    @Published var geofenceTriggered: Bool = false
+    
+    
     override init() {
         super.init()
         manager.delegate = self
+        
     }
 
     func start() {
@@ -52,6 +55,6 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
     }
     
     func notifyEntry() {
-        print(regions)
+        geofenceTriggered = true
     }
 }
