@@ -198,9 +198,7 @@ struct MapView: View {
             //            }
         }
     }
-    
-    
-    
+
     func placeholder() {
         
     }
