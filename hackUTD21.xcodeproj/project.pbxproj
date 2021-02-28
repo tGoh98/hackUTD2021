@@ -13,6 +13,8 @@
 		C2715EB725EB33710018A581 /* CardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB625EB33710018A581 /* CardInfo.swift */; };
 		C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EB925EB3DCE0018A581 /* TrailDetail.swift */; };
 		C2715EBE25EB63C70018A581 /* StartPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715EBD25EB63C70018A581 /* StartPath.swift */; };
+		C2715ED325EB94330018A581 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715ED225EB94330018A581 /* ImagePicker.swift */; };
+		C2715ED625EB99450018A581 /* MyMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2715ED525EB99450018A581 /* MyMoment.swift */; };
 		C275A8DD25EAC8D500E9778E /* hackUTD21App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */; };
 		C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275A8DE25EAC8D500E9778E /* ContentView.swift */; };
 		C275A8E125EAC8D600E9778E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C275A8E025EAC8D600E9778E /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		C2715EB625EB33710018A581 /* CardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfo.swift; sourceTree = "<group>"; };
 		C2715EB925EB3DCE0018A581 /* TrailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetail.swift; sourceTree = "<group>"; };
 		C2715EBD25EB63C70018A581 /* StartPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPath.swift; sourceTree = "<group>"; };
+		C2715ED225EB94330018A581 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C2715ED525EB99450018A581 /* MyMoment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoment.swift; sourceTree = "<group>"; };
 		C275A8D925EAC8D500E9778E /* hackUTD21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackUTD21.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C275A8DC25EAC8D500E9778E /* hackUTD21App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hackUTD21App.swift; sourceTree = "<group>"; };
 		C275A8DE25EAC8D500E9778E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				C2715EBD25EB63C70018A581 /* StartPath.swift */,
 				7983AA4125EAF85200D0FACD /* MapView.swift */,
 				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
+				C2715ED225EB94330018A581 /* ImagePicker.swift */,
+				C2715ED525EB99450018A581 /* MyMoment.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -305,10 +311,12 @@
 				C2ABE66525EAEA20007A8728 /* Group.swift in Sources */,
 				C2EDD84A25EAD7DA005D8E1E /* Visibility.swift in Sources */,
 				7983AA4625EAFB7600D0FACD /* LocationFetcher.swift in Sources */,
+				C2715ED625EB99450018A581 /* MyMoment.swift in Sources */,
 				C275A8DF25EAC8D500E9778E /* ContentView.swift in Sources */,
 				C26CDC3225EB012C002BBE14 /* ModelData.swift in Sources */,
 				7983AA4225EAF85200D0FACD /* MapView.swift in Sources */,
 				C2715EBA25EB3DCE0018A581 /* TrailDetail.swift in Sources */,
+				C2715ED325EB94330018A581 /* ImagePicker.swift in Sources */,
 				C2EDD85125EAE011005D8E1E /* Moment.swift in Sources */,
 				C2ABE67325EAF788007A8728 /* Feed.swift in Sources */,
 				C2715EBE25EB63C70018A581 /* StartPath.swift in Sources */,

@@ -47,7 +47,7 @@ struct TrailDetail: View {
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding()
             .foregroundColor(.white)
-            .background(Color.init(hex: "FF7800"))
+            .background(Color.init(hex: "FE5722"))
             .cornerRadius(40)
             .padding(.horizontal, 80)
             

@@ -2,8 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Pathways needs access to your camera in order to create moments</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Pathways needs access to your camera in order to create moments</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>We need this to track you down!!!</string>
+	<string>Pathways needs your location to create paths</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -42,7 +46,7 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need this to track you down!!!</string>
+	<string>Pathways needs your location to create paths</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

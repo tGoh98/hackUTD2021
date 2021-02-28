@@ -22,6 +22,7 @@ struct StartPath: View {
                     HStack {
                         Button(action: { modelData.pageNum = 0 }) {
                             Image(systemName: "chevron.left")
+                                .foregroundColor(Color.init(hex: "FE5722"))
                         }.padding(.leading)
                         Spacer()
                         Text("Start your path")

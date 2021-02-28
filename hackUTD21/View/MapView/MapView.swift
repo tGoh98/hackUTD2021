@@ -18,6 +18,10 @@ struct MapView: View {
     @State private var timeElapsed: Int = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+    @State var image = UIImage()
+    @State private var showMomentDialog: Bool = false
+    @State private var isShowPhotoLibrary = false
+    
     @State private var showingCreateMomentAlert = false
     @State private var trailBegan = false
     @State private var showVisibilityActionSheet = false
@@ -41,6 +45,7 @@ struct MapView: View {
     var body: some View {
         
         VStack {
+            
             ZStack {
                 Map(
                     coordinateRegion: $region,
@@ -92,7 +97,7 @@ struct MapView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(.vertical, 7)
                         .foregroundColor(.white)
-                        .background(Color.init(hex: "FF7800"))
+                        .background(Color.init(hex: "FE5722"))
                         .cornerRadius(40)
                         .padding(.horizontal, 110)
                         .padding(.bottom, 60)
@@ -106,6 +111,9 @@ struct MapView: View {
                                 Spacer()
                                 Button(action: {
                                     if (trailBegan) {
+                                        self.isShowPhotoLibrary = true
+                                        self.showMomentDialog = true
+                                        
                                         createMoment()
                                         DispatchQueue.global().asyncAfter(deadline: .now() +  .milliseconds(500)) {
                                             let location = self.locationFetcher.lastKnownLocation!
@@ -178,7 +186,7 @@ struct MapView: View {
                                     .frame(minWidth: 0, maxWidth: .infinity)
                                     .padding(.vertical, 7)
                                     .foregroundColor(.white)
-                                    .background(Color.init(hex: "FF7800"))
+                                    .background(Color.init(hex: "FE5722"))
                                     .cornerRadius(40)
                                     .padding(.horizontal, 20)
                                     .padding(.bottom)
@@ -189,6 +197,9 @@ struct MapView: View {
                         
                     }
                 }
+                if (self.showMomentDialog) {
+                    MyMoment(showMomentDialog: $showMomentDialog, image: $image)
+                }
             }
             //            if locationFetcher.geofenceTriggered == true {
             //                Menu("You Just Found A Moment!") {
@@ -196,6 +207,10 @@ struct MapView: View {
             //                }
             //
             //            }
+        }
+        .sheet(isPresented: $isShowPhotoLibrary) {
+            ImagePicker(selectedImage: self.$image, sourceType: .camera)
+                .edgesIgnoringSafeArea(.all)
         }
     }
     
