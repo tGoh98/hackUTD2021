@@ -14,9 +14,5 @@ class Visibility: Identifiable, Codable {
     init(type: Int, groups: Array<UUID> = [UUID]()) {
         self.type = type
         self.groups = groups
-//        if (type == 2) {
-//            // TODO: add everyone const for group
-//
-//        }
     }
 }

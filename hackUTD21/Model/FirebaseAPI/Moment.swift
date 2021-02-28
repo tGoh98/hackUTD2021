@@ -22,7 +22,7 @@ class Moment: Identifiable, Codable {
         self.contents = contents
         self.latitude = latitude
         self.longitude = longitude
-        self.timeAdded = Date() // gets the current time
+        self.timeAdded = Date()
         self.tags = tags
     }
 }
