@@ -96,18 +96,11 @@
 		C2715EAB25EB0C730018A581 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
+				C2715EBD25EB63C70018A581 /* StartPath.swift */,
 				7983AA4125EAF85200D0FACD /* MapView.swift */,
 				7983AA4525EAFB7600D0FACD /* LocationFetcher.swift */,
 			);
 			path = MapView;
-			sourceTree = "<group>";
-		};
-		C2715EBC25EB63BC0018A581 /* Pathing */ = {
-			isa = PBXGroup;
-			children = (
-				C2715EBD25EB63C70018A581 /* StartPath.swift */,
-			);
-			path = Pathing;
 			sourceTree = "<group>";
 		};
 		C275A8D025EAC8D500E9778E = {
@@ -171,7 +164,6 @@
 		C2ABE66B25EAF70E007A8728 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C2715EBC25EB63BC0018A581 /* Pathing */,
 				C2715EAB25EB0C730018A581 /* MapView */,
 				C2ABE66C25EAF76D007A8728 /* Feed */,
 			);

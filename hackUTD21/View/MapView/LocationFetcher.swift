@@ -14,7 +14,6 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate, ObservableObject {
     var regions = [String: CLRegion]()
     @Published var geofenceTriggered: Bool = false
     
-    
     override init() {
         super.init()
         manager.delegate = self

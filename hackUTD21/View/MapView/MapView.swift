@@ -34,7 +34,6 @@ struct MapView: View {
     
     var body: some View {
         
-        
         VStack {
             Map(
                 coordinateRegion: $region,
@@ -46,60 +45,60 @@ struct MapView: View {
                 MapMarker(coordinate: CLLocationCoordinate2D(latitude: moment.latitude, longitude: moment.longitude))
             }
             
-            if locationFetcher.geofenceTriggered == true {
-                Menu("You Just Found A Moment!") {
-                    Button("Check it Out", action: placeholder)
-                }
-
-            }
             
-            Button("Read Location") {
-                centerMap()
-            }
-            
-            Button("Create Moment") {
-                if trailBegan == true {
-                    createMoment()
-                    DispatchQueue.global().asyncAfter(deadline: .now() +  .milliseconds(500)) {
-                        let location = self.locationFetcher.lastKnownLocation!
-                        self.region.center.latitude = location.latitude + 0.000001
-                        self.region.center.latitude = location.latitude - 0.000001
-                    }
-                } else {
-                    showingCreateMomentAlert = true
-                }
-            }
-            .alert(isPresented: $showingCreateMomentAlert) {
-                Alert(title: Text("Cannot Capture the Moment"), message: Text("Begin the trail to start capturing the moment!"), dismissButton: .default(Text("Got it!")))
-            }
-            
-            Button("Begin Trail!") {
-                trailBegan = true
-                modelData.requestIo.trailMomentUUIDs = [UUID]()
-                self.showVisibilityActionSheet = true
-            }
-            .actionSheet(isPresented: $showVisibilityActionSheet) {
-                ActionSheet(title: Text("Select Visibility"), message: Text("Choose a visibility for your new route."), buttons: [
-                    .default(Text("Private")) {
-                        var group = [UUID]()
-                        group.append(modelData.currentUserUUID!)
-                        modelData.requestIo.trailVisibility = Visibility(type: 0, groups: group) },
-                    .default(Text("Public")) {
-                        var group = [UUID]()
-                        group.append(modelData.currentUserUUID!)
-                        modelData.requestIo.trailVisibility = Visibility(type: 2, groups: group)},
-                    .default(Text("Group")) {
-                        var group = [UUID]()
-                        group.append(modelData.currentUserUUID!)
-                        modelData.requestIo.trailVisibility = Visibility(type: 1, groups: group)},
-                    .cancel()
-                ])
-            }
-            
-            Button("End Trail!") {
-                var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!)
-                trailBegan = false
-            }
+//            if locationFetcher.geofenceTriggered == true {
+//                Menu("You Just Found A Moment!") {
+//                    Button("Check it Out", action: placeholder)
+//                }
+//            }
+//
+//            Button("Read Location") {
+//                centerMap()
+//            }
+//
+//            Button("Create Moment") {
+//                if trailBegan == true {
+//                    createMoment()
+//                    DispatchQueue.global().asyncAfter(deadline: .now() +  .milliseconds(500)) {
+//                        let location = self.locationFetcher.lastKnownLocation!
+//                        self.region.center.latitude = location.latitude + 0.000001
+//                        self.region.center.latitude = location.latitude - 0.000001
+//                    }
+//                } else {
+//                    showingCreateMomentAlert = true
+//                }
+//            }
+//            .alert(isPresented: $showingCreateMomentAlert) {
+//                Alert(title: Text("Cannot Capture the Moment"), message: Text("Begin the trail to start capturing the moment!"), dismissButton: .default(Text("Got it!")))
+//            }
+//
+//            Button("Begin Trail!") {
+//                trailBegan = true
+//                modelData.requestIo.trailMomentUUIDs = [UUID]()
+//                self.showVisibilityActionSheet = true
+//            }
+//            .actionSheet(isPresented: $showVisibilityActionSheet) {
+//                ActionSheet(title: Text("Select Visibility"), message: Text("Choose a visibility for your new route."), buttons: [
+//                    .default(Text("Private")) {
+//                        var group = [UUID]()
+//                        group.append(modelData.currentUserUUID!)
+//                        modelData.requestIo.trailVisibility = Visibility(type: 0, groups: group) },
+//                    .default(Text("Public")) {
+//                        var group = [UUID]()
+//                        group.append(modelData.currentUserUUID!)
+//                        modelData.requestIo.trailVisibility = Visibility(type: 2, groups: group)},
+//                    .default(Text("Group")) {
+//                        var group = [UUID]()
+//                        group.append(modelData.currentUserUUID!)
+//                        modelData.requestIo.trailVisibility = Visibility(type: 1, groups: group)},
+//                    .cancel()
+//                ])
+//            }
+//
+//            Button("End Trail!") {
+//                var uuid = modelData.requestIo.createRoute(currentUserUUID: modelData.currentUserUUID!)
+//                trailBegan = false
+//            }
         }
     }
     

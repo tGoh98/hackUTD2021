@@ -16,8 +16,6 @@ struct ContentView: View {
                 Feed()
             case 1:
                 StartPath()
-            case 2:
-                MapView()
             default:
                 Text("pageNum not found!")
             }
@@ -26,11 +24,6 @@ struct ContentView: View {
                 VStack() {
                     Spacer()
                     HStack() {
-                        Button(action: {
-                            modelData.pageNum = 2
-                        }, label: {
-                            Text("map view")
-                        })
                         Spacer()
                         Button(action: {
                             modelData.pageNum = 1
@@ -40,10 +33,12 @@ struct ContentView: View {
                                 .frame(width: 55, height: 50)
                                 .foregroundColor(Color.white)
                                 .padding(.bottom, 7)
+                                .padding(5)
                         })
                         .background(Color.init(hex: "FF7800"))
                         .cornerRadius(38.5)
                         .padding()
+                        .padding(.trailing)
                         .shadow(color: Color.black.opacity(0.3),
                                 radius: 3,
                                 x: 3,
