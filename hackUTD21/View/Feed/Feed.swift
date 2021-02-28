@@ -10,6 +10,7 @@ import MapKit
 
 struct Feed: View {
     @EnvironmentObject var modelData: ModelData
+    @State private var action: Int? = 0
     
     var body: some View {
         ZStack {
@@ -18,42 +19,22 @@ struct Feed: View {
                     List(modelData.feed) { feedItem in
                         ZStack {
                             FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
-                            NavigationLink(destination: TrailDetail(card: FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))))) {
+                            NavigationLink(
+                                destination: TrailDetail(card: FeedCard(name: feedItem.name, timeAdded: feedItem.timeAdded, desc: feedItem.desc, region: MKCoordinateRegion(center: feedItem.firstCoord, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))),
+                                tag: 1,
+                                selection: $action
+                            ) {
                                 EmptyView()
                             }
                             .opacity(0.0)
                             .buttonStyle(PlainButtonStyle())
                         }
+                        .onTapGesture {
+                            self.action = 1
+                            modelData.pageNum = 1
+                        }
                     }
                     .navigationTitle("Home")
-                }
-            }
-            
-            VStack() {
-                Spacer()
-                HStack() {
-                    Button(action: {
-                        modelData.pageNum = 2
-                    }, label: {
-                        Text("map view")
-                    })
-                    Spacer()
-                    Button(action: {
-                        modelData.pageNum = 1
-                    }, label: {
-                        Text("+")
-                            .font(.system(.largeTitle))
-                            .frame(width: 77, height: 70)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
-                    })
-                    .background(Color.blue)
-                    .cornerRadius(38.5)
-                    .padding()
-                    .shadow(color: Color.black.opacity(0.3),
-                            radius: 3,
-                            x: 3,
-                            y: 3)
                 }
             }
         }

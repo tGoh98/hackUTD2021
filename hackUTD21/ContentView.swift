@@ -10,15 +10,47 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var modelData: ModelData
     var body: some View {
-        switch (modelData.pageNum) {
-        case 0:
-            Feed()
-        case 1:
-            Text("create run")
-        case 2:
-            MapView()
-        default:
-            Text("pageNum not found!")
+        ZStack {
+            switch (modelData.pageNum) {
+            case 0:
+                Feed()
+            case 1:
+                Feed()
+            case 2:
+                MapView()
+            default:
+                Text("pageNum not found!")
+            }
+
+            if (modelData.pageNum == 0) {
+                VStack() {
+                    Spacer()
+                    HStack() {
+                        Button(action: {
+                            modelData.pageNum = 2
+                        }, label: {
+                            Text("map view")
+                        })
+                        Spacer()
+                        Button(action: {
+                            modelData.pageNum = 3
+                        }, label: {
+                            Text("+")
+                                .font(.system(.largeTitle))
+                                .frame(width: 55, height: 50)
+                                .foregroundColor(Color.white)
+                                .padding(.bottom, 7)
+                        })
+                        .background(Color.init(hex: "FF7800"))
+                        .cornerRadius(38.5)
+                        .padding()
+                        .shadow(color: Color.black.opacity(0.3),
+                                radius: 3,
+                                x: 3,
+                                y: 3)
+                    }
+                }
+            }
         }
     }
 }

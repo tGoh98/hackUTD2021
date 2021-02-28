@@ -9,9 +9,22 @@ import SwiftUI
 import MapKit
 
 struct TrailDetail: View {
-    
+    @EnvironmentObject var modelData: ModelData
     var card: FeedCard
     @State private var action: Int? = 0
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    
+    var btnBack : some View { Button(action: {
+        self.mode.wrappedValue.dismiss()
+        modelData.pageNum = 0
+    }) {
+        HStack {
+            Image(systemName: "chevron.left") // set image here
+                .aspectRatio(contentMode: .fit)
+            Text("Home")
+        }
+    }
+    }
     
     var body: some View {
         VStack {
@@ -40,11 +53,15 @@ struct TrailDetail: View {
             Spacer()
             
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: btnBack)
     }
+    
 }
 
 struct TrailDetail_Previews: PreviewProvider {
     static var previews: some View {
         TrailDetail(card: FeedCard(name:"tim", timeAdded: Date(), desc: "snoooooopy", region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.7617, longitude: 80.1918), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))))
+            .environmentObject(ModelData())
     }
 }

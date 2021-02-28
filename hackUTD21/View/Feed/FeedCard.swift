@@ -28,7 +28,7 @@ struct FeedCard: View {
                 .padding(.vertical)
             
             Map(coordinateRegion: $region)
-                .frame(minHeight:200, maxHeight: 200)
+                .frame(minHeight:200, maxHeight: 300)
                 .padding(.vertical)
         }
         
