@@ -30,6 +30,7 @@ struct MapView: View {
 
     init() {
         self.locationFetcher.start()
+        centerMap()
     }
     
     var body: some View {
