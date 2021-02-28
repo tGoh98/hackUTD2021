@@ -213,9 +213,7 @@ struct MapView: View {
                 .edgesIgnoringSafeArea(.all)
         }
     }
-    
-    
-    
+
     func placeholder() {
         
     }
