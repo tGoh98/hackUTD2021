@@ -6,14 +6,14 @@
 
 import Foundation
 
-class Group: Identifiable {
+class Group: Identifiable, Codable {
     var id: UUID
     var name: String
     var users: Array<UUID>
     
-    init(id: UUID = UUID(), name: String) {
+    init(id: UUID = UUID(), name: String, groups: Array<UUID> = [UUID]()) {
         self.id = id
         self.name = name
-        self.users = [UUID]()
+        self.users = groups
     }
 }
