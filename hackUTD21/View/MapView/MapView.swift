@@ -77,6 +77,7 @@ struct MapView: View {
                             trailBegan = true
                             modelData.requestIo.trailMomentUUIDs = [UUID]()
                             modelData.trailDist = 0
+                            modelData.uploadURLs = [URL]()
                             self.showVisibilityActionSheet = true
                             locationFetcher.trailStartTime = DispatchTime.now()
                         })
@@ -279,6 +280,7 @@ struct MapView: View {
     func createMoment() {
         if let location = self.locationFetcher.lastKnownLocation {
             var item = Item(strMsg: caption)
+            self.caption = ""
             let newMoment: Moment = modelData.requestIo.createMoment(contents: item, tags: ["tag1", "tag2"], coordinate: getCurrentLocation())
             
             momentUUID = newMoment.id

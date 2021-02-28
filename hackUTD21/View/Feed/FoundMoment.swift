@@ -20,7 +20,7 @@ struct FoundMoment: View {
                 Spacer()
             }
             Image(systemName: "person.fill")
-                .data(url: URL(string: imageSource)!)
+                .data(url: (URL(string: imageSource) ?? URL(string: "https://firebasestorage.googleapis.com/v0/b/hackutd21.appspot.com/o/images%2F31EC9620-FEBE-4870-A5B9-C8EF1E110423?alt=media&token=b5eeb5d9-d868-432c-b7c6-b26ce035f9a6"))!)
                 .scaledToFit()
                 .padding()
         }
